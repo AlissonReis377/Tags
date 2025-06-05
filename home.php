@@ -51,7 +51,7 @@
 	<head>
 		<meta charset="UTF-8">
 
-		<title>Twitter clone</title>
+		<title>Tags!</title>
 		
 		<!-- jquery - link cdn -->
 		<script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
@@ -100,7 +100,7 @@
 						data: $('#form_tag').serialize(),
 						success: function(data){
 							$('#texto_tag').val('');
-							$('#mensagem_sucesso').text('Tag iniciada com sucesso!').show(); //exibe o tag iniciada com sucesso a baixo do form de envio da tag
+							$('#mensagem_sucesso').text('Tag Feita com sucesso!').show(); //exibe o tag iniciada com sucesso a baixo do form de envio da tag
 							setTimeout(function(){
                             $('#mensagem_sucesso').fadeOut('slow')
                             }, 3000); // escode a mensagem dps de 3 segundos O_O
@@ -239,7 +239,7 @@
 							<form id="form_tag" class="input-group">
 								<input type="text" id="texto_tag" name="texto_tag" class="form-control" placeholder="Comece suas Tags!" maxlength="200" />
 								<span class="input-group-btn">
-								<button class="btn btn-default" id="btn_tag" type="button">Iniciar Tag</button>
+								<button class="btn btn-default" id="btn_tag" type="button">fazer uma Tag</button>
 								</span>
 							</form>
 							<div id="mensagem_sucesso" class="mensagem-sucesso" style="display: none;"></div>
