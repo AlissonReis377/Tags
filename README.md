@@ -105,12 +105,5 @@ Funcionalmente, o Diagrama de Casos de Uso de "Tags" reflete essa abordagem dire
 *  Javascript
 *  Jquery
 *  Ajax
-
-#  Colaboração
-
-@alissonreis377
-
-@gustavomanoelpo8
-
-@damaceno.hyass
+*  MySql
 
