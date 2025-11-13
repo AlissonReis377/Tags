@@ -12,10 +12,19 @@
 
 		<!-- jquery - link cdn -->
 		<script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+		
+		<!--WOW.JS (animações) -->
+		<script src="js/wow.min.js"></script>
+        <script>
+            new WOW().init();
+        </script>
+	
 
 		<!-- bootstrap - link cdn -->
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 		<link rel="stylesheet" href="style/style.css">
+		<!--animte.css-->
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
 	
 		<script>
 			// código javascript
@@ -95,7 +104,7 @@
 	      </div>
 	    </nav>
 
-
+<div class="wow animate__animated animate__fadeInUp" data-wow-delay="0.5s">
 	<div class="container">
   		<div class="row"> <!-- centraliza verticalmente -->
     
@@ -107,7 +116,7 @@
     <!-- Coluna do texto -->
     	<div class="col-md-6">
       		<div class="jumbotron" style="font-family: monospace;">
-        		<h1>Bem vindo ao Tags!</h1>
+        		<h1 class="animate__animated animate__bounce animate__faster">Bem vindo ao Tags!</h1>
         		<p>Comece agora mesmo!</p>
         		<a class="btn btn-custom" href="inscrevase.php">Inscrever-se</a>
 				<br><br><br><br>
@@ -125,6 +134,7 @@
 								<br /><br />
 								
 							</form>
+							
       		</div>
     	</div>
 
@@ -137,8 +147,7 @@
 
 
 	    </div>
-	
+</div>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-	
 	</body>
 </html>
