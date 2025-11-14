@@ -1,6 +1,6 @@
 
 # Mudanças do projeto
-  O projeto mudou! Agora ele é desenvolvido por uma equipe de amigos, contando com dois devs, um disegner e um QA. 
+  O projeto mudou! Agora ele é desenvolvido por uma equipe de amigos, contando com dois devs, um disegner e dois QA. 
   
 # Sobre o projeto
   O projeto "Tags" surgiu como um trabalho universitário que desenvolvi com alguns colegas de curso para a disciplina de Programação Orientada a Objetos. Nosso principal objetivo era criar uma rede social inspirada no Twitter, mas com uma abordagem radicalmente minimalista. Queríamos redefinir a experiência de uma plataforma social, eliminando muitas das interações complexas que se tornaram onipresentes hoje em dia.
