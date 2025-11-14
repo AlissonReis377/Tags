@@ -58,6 +58,8 @@
 
 		<!-- bootstrap - link cdn -->
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+		<!--animte.css-->
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
 	
 
 		<style>
@@ -67,6 +69,11 @@
                 margin-top: 10px;
             }
         </style>
+
+        <script>
+            new WOW().init();
+        </script>
+	
 
 
 
@@ -245,9 +252,9 @@
 							<div id="mensagem_sucesso" class="mensagem-sucesso" style="display: none;"></div>
 					</div>
 				</div>
-
+<div class="wow animate__animated animate__fadeInUp" data-wow-delay="0.5s">
 				<div id="tags" class="list-group"></div>
-
+</div>
 			</div>
 			<div class="col-md-3">
 				<div class="panel panel-default">
@@ -270,6 +277,6 @@
 	    </div>
 	
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-	
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
 	</body>
 </html>
