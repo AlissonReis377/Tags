@@ -216,7 +216,7 @@
 	        
 	        <div id="navbar" class="navbar-collapse collapse">
 	          <ul class="nav navbar-nav navbar-right">
-				  <li><a href="perfil_usuario.php">Peril</a></li>
+				  <li><a href="perfil_usuario.php">Perfil</a></li>
 				  <li><a href="buscar.php">Buscar</a></li>
 				  <li><a href="#">Configurações</a>
 				  <li><a href="sair.php">Sair</a></li>
