@@ -176,10 +176,10 @@ session_start();
     </style>
 </head>
 <body>
-    <!--Visualizacao do perfil -->
+    <!--Visualização do perfil -->
     <div id="visualizacao">
         <section>
-            <!-- Cabecalho do Perfil -->
+            <!-- Cabeçalho do Perfil -->
             <div class="cabecalho-perfil">
                 <div>
                     <img id="foto-visu" src="https://via.placeholder.com/150" alt="Foto_perfil" width="150" height="150">
@@ -190,9 +190,9 @@ session_start();
 
                     <h1 id="nome">Laura Olivetti</h1>
                     <p id="username">@lauradopix</p>
-                    <p id="info-visu">Desenvolvedora Web! Sao Paulo</p>
+                    <p id="info-visu">Desenvolvedora Web! São Paulo</p>
 
-                <!--Estatitsicas-->
+                <!--Estatístiicas-->
                 <table>
                     <tr>
                         <th>Tags</th>
@@ -212,12 +212,12 @@ session_start();
         <!--Biografia-->
         <section>
             <h2>Biografia</h2>
-            <p id="biografia">Gosto de fazer chocolate quente e cafune em gatinhos fofinhos</p>
+            <p id="biografia">Gosto de fazer chocolate quente e cafuné em gatos fofinhos! :3</p>
         </section>
 
-        <!--Informacoes pessoais-->
+        <!--Informações pessoais-->
         <section>
-            <h2>Informacoes</h2>
+            <h2>Informações</h2>
             <ul>
                 <li>Email: <span id="email-visu">laurinha.mataporco@gmai.com</span></li>
                 <li>Telefone: <span id="telefone-visu">(11) 99124-1855</span></li>
@@ -227,7 +227,7 @@ session_start();
         </section>
     </div> 
 
-    <!-- Modo de edicao de perfil  -->
+    <!-- Modo de edição de perfil  -->
     <div id="edicao-perfil" style="display: none;">
         <section>
             <h2>Editar perfil</h2>
@@ -241,7 +241,7 @@ session_start();
                 <button onclick="removerFoto()">Remover foto</button>
             </div>
 
-        <!--Form de edicao-->
+        <!--Form de edição-->
         <form id="form-edicao">
             <label for="nome-edicao">Nome:</label>
             <input type="text" id="nome-edicao" value="Laura" placeholder="Seu nome">
@@ -253,7 +253,7 @@ session_start();
             <input type="text" id="cidade-edicao" value="Sao Paulo" placeholder="Sua cidade">
 
             <label for="bio-edicao">Biografia:</label>
-            <textarea id="bio-edicao" rows="4" placeholder="Conte sobre voce!">Gosto de fazer chocolate quente e cafune em gatinhos fofinhos</textarea>
+            <textarea id="bio-edicao" rows="4" placeholder="Conte sobre voce!">Gosto de fazer chocolate quente e cafuné em gatos fofinhos! :3</textarea>
 
             <label for="email-edicao">Email:</label>
             <input type="email" id="email-edicao" value="laura.mataporco@gmail.com" placeholder="SeuEmail@gmail.com">
@@ -267,9 +267,9 @@ session_start();
             <label for="nascimento-edicao">Data de Nascimento:</label>
             <input type="date" id="nascimento-edicao" value="2006-05-06">
 
-        <!--Botoes de Acao-->
+        <!--Botões de Ação-->
         <div class="botoes-acao">
-            <button type="button" onclick="salvarAlteracoes()">Salvar alteracoes</button>
+            <button type="button" onclick="salvarAlteracoes()">Salvar alterações</button>
             <button type="button" onclick="cancelarEdicao()">Cancelar</button>
         </div>
         </form>
