@@ -321,7 +321,6 @@
         </form>
         </section>
     </div>
-
 <script>
     function modoEdicao(){
         document.getElementById('visualizacao').style.display = 'none';
