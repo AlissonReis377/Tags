@@ -1,22 +1,57 @@
-<?php
-
-//começa aqui mas pega o coisa do php ali em cima
-session_start();
-//validação sessao do usuario
+<?php    
+    session_start();
+//validação sessao suussususuusa  usuaraio to com sono
     if(!isset($_SESSION['usuario'])){
         header('location: index.php?erro=1');
     }
 
-	//puxa tudo que tem no banco de dados
+	//puxa tudo logo nessa budega
 	require_once('db.class.php');
 	require_once('Usuario.class.php');
 	require_once('consulta.class.php');
+	
 	$objDb = new Db();
 	$link = $objDb->conecta_mysql();
+	
+	
+	//$id_usuario = $_SESSION['id_usuario']; -> ta errado é pra usar id somente
+	$id_usuario = $_SESSION['id']; //DESSE JEITO 
+	//quantidade de tags aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+	$sql= "SELECT COUNT(*) AS qtd_tags FROM tag WHERE id_usuario = $id_usuario";
 
-    //acaba aqui
+	$resultado_id = mysqli_query($link, $sql);
+
+		if($resultado_id){
+			$registro = mysqli_fetch_array($resultado_id, MYSQLI_ASSOC);
+			
+			$qtd_tags = $registro['qtd_tags'];
+		}else{
+			echo'Houve um erro';
+	}
+
+	$sql= "SELECT COUNT(id_usuario) AS qtd_seguidores FROM usuarios_seguidores WHERE seguindo = 1 AND seguindo_id_usuario = $id_usuario";
+	
+	$resultado_id = mysqli_query($link, $sql);
+
+	if($resultado_id){
+		$registro = mysqli_fetch_array($resultado_id, MYSQLI_ASSOC);
+		$qtd_seguidores = $registro['qtd_seguidores'];
+	}else{
+		echo'houve um erro';
+	}
+
+    $sql= "SELECT COUNT(seguindo) AS qtd_seguindo FROM usuarios_seguidores WHERE id_usuario = $id_usuario";
+    $resultado_id = mysqli_query($link, $sql); 
+    if($resultado_id){
+        $registro = mysqli_fetch_array($resultado_id, MYSQLI_ASSOC);
+        $qtd_seguindo = $registro['qtd_seguindo'];
+    }else{
+        echo'houve um erro';
+    }
+
+
+
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -27,6 +62,12 @@ session_start();
     <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
     <!-- bootstrap - link cdn -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <!--animte.css-->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+
+        <script>
+            new WOW().init();
+        </script>
 
     <style>
         body{
@@ -179,7 +220,8 @@ session_start();
     <!--Visualização do perfil -->
     <div id="visualizacao">
         <section>
-            <!-- Cabeçalho do Perfil -->
+            <!-- Cabecalho do Perfil -->
+         <div class="wow animate__animated animate__fadeIn" data-wow-duration="3s">
             <div class="cabecalho-perfil">
                 <div>
                     <img id="foto-visu" src="https://via.placeholder.com/150" alt="Foto_perfil" width="150" height="150">
@@ -188,11 +230,11 @@ session_start();
                 <div class="info-perfil">
                     <button onclick="modoEdicao()">Editar perfil</button>
 
-                    <h1 id="nome">Laura Olivetti</h1>
-                    <p id="username">@lauradopix</p>
-                    <p id="info-visu">Desenvolvedora Web! São Paulo</p>
-
-                <!--Estatístiicas-->
+                    <h1 id="nome"><?= $_SESSION['usuario'] ?><small>#<?=$_SESSION['id']?></h1>
+                    <p id="username"><?= $_SESSION['username'] ?></p>
+                    <p id="info-visu"><?= $_SESSION['endereco'] ?></p>
+            
+                <!--Estatitsicas-->
                 <table>
                     <tr>
                         <th>Tags</th>
@@ -200,30 +242,34 @@ session_start();
                         <th>Seguindo</th>
                     </tr>
                     <tr>
-                        <td>100</td>
-                        <td>420</td>
-                        <td>6969</td>
+                        <td><?=$qtd_tags?></td>
+                        <td><?=$qtd_seguidores?></td>
+                        <td><?=$qtd_seguindo?></td>
                     </tr>
                 </table>
                 </div>
             </div>
+        </div>
         </section>
 
         <!--Biografia-->
         <section>
+        <div class="wow animate__animated animate__fadeIn" data-wow-duration="3s">
             <h2>Biografia</h2>
-            <p id="biografia">Gosto de fazer chocolate quente e cafuné em gatos fofinhos! :3</p>
+            <p id="biografia"><?= $_SESSION['bio']; ?></p>
+        </div>
         </section>
-
-        <!--Informações pessoais-->
+        <!--Informacoes pessoais-->
         <section>
-            <h2>Informações</h2>
+        <div class="wow animate__animated animate__fadeIn" data-wow-duration="3s">
+            <h2>Informacoes</h2>
             <ul>
-                <li>Email: <span id="email-visu">laurinha.mataporco@gmai.com</span></li>
-                <li>Telefone: <span id="telefone-visu">(11) 99124-1855</span></li>
-                <li>Site: <span id="site-visu"> wwww.laurasexshop.com</span></li>
-                <li>Data de Nascimento: <span id="nascimento-visu">06/05/2006</span></li>
+                <li>Email: <span id="email-visu"><?= $_SESSION['email']; ?></span></li>
+                <li>Telefone: <span id="telefone-visu"><?= $_SESSION['telefone']; ?></li>
+                <li>Site: <span id="site-visu"><?= $_SESSION['endereco']; ?></span></li>
+                <li>Data de Nascimento: <span id="nascimento-visu"><?= $_SESSION['dt_nasc']; ?></span></li>
             </ul>
+        </div>
         </section>
     </div> 
 
@@ -275,7 +321,6 @@ session_start();
         </form>
         </section>
     </div>
-
 <script>
     function modoEdicao(){
         document.getElementById('visualizacao').style.display = 'none';

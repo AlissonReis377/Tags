@@ -18,6 +18,11 @@
         $_SESSION['id'] = $dados_usuario['Id_usuario']; // <- Aqui pega o ID
         $_SESSION['usuario'] = $dados_usuario['usuario']; //para manter a sessão do usuario quando tiver conectado
         $_SESSION['email'] = $dados_usuario['email'];
+        $_SESSION['username'] = $dados_usuario['username'];
+        $_SESSION['endereco'] = $dados_usuario['endereco'];
+        $_SESSION['dt_nasc'] = $dados_usuario['dt_nasc'];
+        $_SESSION['telefone'] = $dados_usuario['telefone']; 
+        $_SESSION['bio'] = $dados_usuario['bio'];
 
         header('Location: home.php');
     }else{

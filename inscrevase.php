@@ -57,11 +57,30 @@
 					</div>
 
 					<div class="form-group">
+						<input type="text" class="form-control" id="username" name="username" placeholder="@username" required="requiored">
+						<?php if(isset($_GET['erro_username'])): ?>
+    					<p style="color: red;">Username já existe</p>
+						<?php endif; ?>
+					</div>
+
+					<div class="form-group">
 						<input type="email" class="form-control" id="email" name="email" placeholder="Email" required="requiored">
 					</div>
 					<?php if(isset($_GET['erro_email'])): ?>
     				<p style="color: red;">Email já cadastrado</p>
 					<?php endif; ?>
+					<div class="form-group">
+						<input type="text" class="form-control" id="telefone" name="telefone" placeholder="Telefone" required="requiored">
+					</div>
+					<div class="form-group">
+						<input type="text" class="form-control" id="endereco" name="endereco" placeholder="Cidade" required="requiored">
+					</div>
+					<div class="form-group">
+						<input type="date" class="form-control" id="dt_nasc" name="dt_nasc" placeholder="" required="requiored">
+					</div>
+					<div class="form-group">
+						<textarea class="form-control" id="bio" name="bio" placeholder="Escreva aqui sua biografia" required="requiored" maxlength="160"></textarea>
+					</div>
 					<div class="form-group">
 						<input type="password" class="form-control" id="senha" name="senha" placeholder="Senha" required="requiored">
 					</div>
