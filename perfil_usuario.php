@@ -217,11 +217,10 @@
     </style>
 </head>
 <body>
-    <!--Visualizacao do perfil -->
+    <!--Visualização do perfil -->
     <div id="visualizacao">
         <section>
             <!-- Cabecalho do Perfil -->
-         <div class="wow animate__animated animate__fadeIn" data-wow-duration="3s">
             <div class="cabecalho-perfil">
                 <div>
                     <img id="foto-visu" src="https://via.placeholder.com/150" alt="Foto_perfil" width="150" height="150">
@@ -230,10 +229,10 @@
                 <div class="info-perfil">
                     <button onclick="modoEdicao()">Editar perfil</button>
 
-                    <h1 id="nome"><?= $_SESSION['usuario'] ?><small>#<?=$_SESSION['id']?></h1>
-                    <p id="username"><?= $_SESSION['username'] ?></p>
-                    <p id="info-visu"><?= $_SESSION['endereco'] ?></p>
-            
+                    <h1 id="nome">Laura Olivetti</h1>
+                    <p id="username">@lauradopix</p>
+                    <p id="info-visu">Desenvolvedora Web! Sao Paulo</p>
+
                 <!--Estatitsicas-->
                 <table>
                     <tr>
@@ -256,12 +255,11 @@
         <section>
         <div class="wow animate__animated animate__fadeIn" data-wow-duration="3s">
             <h2>Biografia</h2>
-            <p id="biografia"><?= $_SESSION['bio']; ?></p>
-        </div>
+            <p id="biografia">Gosto de fazer chocolate quente e cafune em gatinhos fofinhos</p>
         </section>
+
         <!--Informacoes pessoais-->
         <section>
-        <div class="wow animate__animated animate__fadeIn" data-wow-duration="3s">
             <h2>Informacoes</h2>
             <ul>
                 <li>Email: <span id="email-visu"><?= $_SESSION['email']; ?></span></li>
@@ -273,7 +271,7 @@
         </section>
     </div> 
 
-    <!-- Modo de edicao de perfil  -->
+    <!-- Modo de edição de perfil  -->
     <div id="edicao-perfil" style="display: none;">
         <section>
             <h2>Editar perfil</h2>
@@ -287,7 +285,7 @@
                 <button onclick="removerFoto()">Remover foto</button>
             </div>
 
-        <!--Form de edicao-->
+        <!--Form de edição-->
         <form id="form-edicao">
             <label for="nome-edicao">Nome:</label>
             <input type="text" id="nome-edicao" value="Laura" placeholder="Seu nome">
@@ -299,7 +297,7 @@
             <input type="text" id="cidade-edicao" value="Sao Paulo" placeholder="Sua cidade">
 
             <label for="bio-edicao">Biografia:</label>
-            <textarea id="bio-edicao" rows="4" placeholder="Conte sobre voce!">Gosto de fazer chocolate quente e cafune em gatinhos fofinhos</textarea>
+            <textarea id="bio-edicao" rows="4" placeholder="Conte sobre voce!">Gosto de fazer chocolate quente e cafuné em gatos fofinhos! :3</textarea>
 
             <label for="email-edicao">Email:</label>
             <input type="email" id="email-edicao" value="laura.mataporco@gmail.com" placeholder="SeuEmail@gmail.com">
@@ -313,9 +311,9 @@
             <label for="nascimento-edicao">Data de Nascimento:</label>
             <input type="date" id="nascimento-edicao" value="2006-05-06">
 
-        <!--Botoes de Acao-->
+        <!--Botões de Ação-->
         <div class="botoes-acao">
-            <button type="button" onclick="salvarAlteracoes()">Salvar alteracoes</button>
+            <button type="button" onclick="salvarAlteracoes()">Salvar alterações</button>
             <button type="button" onclick="cancelarEdicao()">Cancelar</button>
         </div>
         </form>
