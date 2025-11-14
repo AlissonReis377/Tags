@@ -203,7 +203,7 @@
 	<body>
 
 		<!-- Static navbar -->
-	    <nav class="navbar navbar-default navbar-static-top" style="font-family: monospace;">
+	    <nav class="navbar navbar-default navbar-static-top " style="font-family: monospace;">
 	      <div class="container">
 	        <div class="navbar-header">
 	          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
@@ -216,7 +216,11 @@
 	        
 	        <div id="navbar" class="navbar-collapse collapse">
 	          <ul class="nav navbar-nav navbar-right">
-	            <li><a href="sair.php">Sair</a></li>
+				  <li><a href="perfil_usuario.php">Peril</a></li>
+				  <li><a href="buscar.php">Buscar</a></li>
+				  <li><a href="#">Configurações</a>
+				  <li><a href="sair.php">Sair</a></li>
+				</li>
 	          </ul>
 	        </div><!--/.nav-collapse -->
 	      </div>
@@ -252,9 +256,9 @@
 							<div id="mensagem_sucesso" class="mensagem-sucesso" style="display: none;"></div>
 					</div>
 				</div>
-<div class="wow animate__animated animate__fadeInUp" data-wow-delay="0.5s">
+
 				<div id="tags" class="list-group"></div>
-</div>
+
 			</div>
 			<div class="col-md-3">
 				<div class="panel panel-default">
