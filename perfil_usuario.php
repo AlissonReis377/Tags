@@ -221,6 +221,7 @@
     <div id="visualizacao">
         <section>
             <!-- Cabecalho do Perfil -->
+         <div class="wow animate__animated animate__fadeIn" data-wow-duration="3s">
             <div class="cabecalho-perfil">
                 <div>
                     <img id="foto-visu" src="https://via.placeholder.com/150" alt="Foto_perfil" width="150" height="150">
@@ -229,10 +230,10 @@
                 <div class="info-perfil">
                     <button onclick="modoEdicao()">Editar perfil</button>
 
-                    <h1 id="nome">Laura Olivetti</h1>
-                    <p id="username">@lauradopix</p>
-                    <p id="info-visu">Desenvolvedora Web! Sao Paulo</p>
-
+                    <h1 id="nome"><?= $_SESSION['usuario'] ?><small>#<?=$_SESSION['id']?></h1>
+                    <p id="username"><?= $_SESSION['username'] ?></p>
+                    <p id="info-visu"><?= $_SESSION['endereco'] ?></p>
+            
                 <!--Estatitsicas-->
                 <table>
                     <tr>
@@ -255,11 +256,12 @@
         <section>
         <div class="wow animate__animated animate__fadeIn" data-wow-duration="3s">
             <h2>Biografia</h2>
-            <p id="biografia">Gosto de fazer chocolate quente e cafune em gatinhos fofinhos</p>
+            <p id="biografia"><?= $_SESSION['bio']; ?></p>
+        </div>
         </section>
-
         <!--Informacoes pessoais-->
         <section>
+        <div class="wow animate__animated animate__fadeIn" data-wow-duration="3s">
             <h2>Informacoes</h2>
             <ul>
                 <li>Email: <span id="email-visu"><?= $_SESSION['email']; ?></span></li>
