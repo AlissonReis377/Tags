@@ -1,3 +1,17 @@
+#Alterações do projeto
+
+  O projeto mudou! Agora ele é desenvolvido por uma equipe de amigos, contando com dois devs, um disegner e um QA. 
+  
+#Sobre o projeto
+  O projeto "Tags" surgiu como um trabalho universitário que desenvolvi com alguns colegas de curso para a disciplina de Programação Orientada a Objetos. Nosso principal objetivo era criar uma rede social inspirada no Twitter, mas com uma abordagem radicalmente minimalista. Queríamos redefinir a experiência de uma plataforma social, eliminando muitas das interações complexas que se tornaram onipresentes hoje em dia.
+
+A ideia central por trás de "Tags" era focar na essência da comunicação e do compartilhamento de conteúdo, sem a sobrecarga de funcionalidades. Decidimos remover elementos como respostas a posts, curtidas, e outras interações que, embora populares, muitas vezes desviam o foco do conteúdo em si. Acreditávamos que, ao simplificar a interface e as opções de interação, poderíamos criar um ambiente mais direto e menos poluído para os usuários.
+
+O protótipo de "Tags" foi concebido para ser o mais minimalista possível. As interações seriam reduzidas ao essencial: os usuários poderiam postar suas próprias mensagens (ou "tags"), e a única forma de engajamento permitida seria através dos botões de seguir e deixar de seguir. Essa escolha deliberada visava promover uma experiência mais focada na leitura e na criação de conteúdo, permitindo que as informações fossem consumidas e disseminadas de forma mais limpa e direta. O desafio de programação orientada a objetos aqui era grande, pois exigia uma arquitetura robusta para gerenciar usuários, posts e as conexões de seguidores, tudo dentro de um escopo bastante limitado de funcionalidades.
+
+
+
+
 #  O Projeto "Tags": Uma Rede Social Minimalista
 
   O projeto "Tags" é um trabalho universitário que desenvolvi com alguns colegas de curso para a disciplina de Programação Orientada a Objetos. Nosso principal objetivo era criar uma rede social inspirada no Twitter, mas com uma abordagem radicalmente minimalista. Queríamos redefinir a experiência de uma plataforma social, eliminando muitas das interações complexas que se tornaram onipresentes hoje em dia.
