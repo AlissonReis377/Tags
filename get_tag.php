@@ -29,6 +29,10 @@ $resultado_id = mysqli_query($link, $sql);
 
 if ($resultado_id) {
     while ($registro = mysqli_fetch_array($resultado_id, MYSQLI_ASSOC)) {
+        echo '<script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>';
+        echo '<script>new WOW().init();</script>';
+        echo '<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>';
+        echo '<div class="wow animate__animated animate__fadeIn" data-wow-duration="1.5s">';
         echo '<div class="list-group-item" id="tag_'.$registro['id_tag'].'">';
             echo '<h4 class="list-group-item-heading">';
                 echo $registro['usuario'].' <small>#'.$registro['id_usuario'].'</small>';
