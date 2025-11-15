@@ -1,3 +1,6 @@
+# Site oficial
+
+  Finalmente lançamos nosso site, confira: https://tags.gamer.gd/home.php
 
 # Mudanças do projeto
   O projeto mudou! Agora ele é desenvolvido por uma equipe de amigos, contando com dois devs, um disegner e dois QA. 
