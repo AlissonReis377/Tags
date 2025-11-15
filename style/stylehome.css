@@ -1,0 +1,52 @@
+body {
+    background-color: rgb(0, 0, 0);
+}
+
+
+.perfilhome{
+    background-color: rgb(0, 24, 56);
+    color: white;
+    border-radius: 5%;
+    padding: 10%;
+    border-color: rgb(0, 24, 56);
+    transition: ease-in-out 0.3s;
+}.perfilhome:hover{
+    border-color: rgb(0, 24, 56);
+    border-style: solid;
+    border-width: 2px;
+    box-shadow: 2px 2px 100px rgb(198, 198, 198);
+    transition: ease-in-out 0.3s;
+}
+
+.perfilhome h2{
+    text-align: center;
+    font-size: 2em;
+    margin-bottom: 10px;
+}
+
+.btn-group-opcoes-home{
+    display: block;
+    align-items: center;
+    justify-content: center;
+    margin-top: 30px;
+    text-align: center;
+    text-decoration: none !important;
+    color: white;
+    font-family: "sora", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+    font-size: large;
+    transition: ease-in-out 0.3s;
+    padding: 10px;
+    border-radius: 30px;
+
+}.btn-group-opcoes-home:hover{
+    background-color: rgb(0, 24, 56);
+    color: white;
+    text-decoration: none;
+    border: 1px;
+    border-color: rgb(0, 24, 56);
+    box-shadow: 2px 2px 100px rgb(198, 198, 198);
+    transition: ease-in-out 0.3s;
+}
