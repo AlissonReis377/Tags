@@ -41,6 +41,15 @@
 		echo'houve um erro';
 	}
 
+	    $sql= "SELECT COUNT(seguindo) AS qtd_seguindo FROM usuarios_seguidores WHERE id_usuario = $id_usuario";
+    $resultado_id = mysqli_query($link, $sql); 
+    if($resultado_id){
+        $registro = mysqli_fetch_array($resultado_id, MYSQLI_ASSOC);
+        $qtd_seguindo = $registro['qtd_seguindo'];
+    }else{
+        echo'houve um erro';
+    }
+
 
 ?>
 
@@ -60,6 +69,7 @@
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 		<!--animte.css-->
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+		<link rel="stylesheet" href="style/stylehome.css">
 	
 
 		<style>
@@ -227,23 +237,44 @@
 	    </nav>
 
 
+
+		<!--Painel do usuario-->
 	    <div class="container" style="font-family: monospace;">
-	    	
+		<div class="row">
 	    	<br /><br />
 			<div class="col-md-3">
-				<div class="panel panel-default">
+				<div class="panel panel-default perfilhome">
 					<div class="panel-body">
-						 <h4><?= $_SESSION['usuario'] ?><small>#<?=$_SESSION['id']?></small></h4>
+						<img src="https://img.freepik.com/fotos-gratis/fotografia-em-close-up-de-um-lindo-gatinho-domestico-de-gengibre-sentado-em-uma-superficie-branca_181624-35913.jpg?semt=ais_hybrid&w=740&q=80" class="img-responsive img-circle center-block" />
+						 <h4><?= $_SESSION['usuario'] ?> <small>#<?=$_SESSION['id']?></small></h4>
+						 <h4 style="color: gray;"><?= $_SESSION['bio'] ?></h4>
 						<hr />
-						<div class="col-md-6" id="seguidores">
-							Seguindo <br> <?=$qtd_seguidores?>
-						</div>
-						<div class="col-md-6 " id="qtdtags">
-							Tags <br> <?=$qtd_tags?>
+						<div class="seguindo-container">
+							<div class="col-md-4" id="seguindo">
+								<strong>Tags</strong><br /> <?= $qtd_tags ?>
+							</div>
+							
+							<div class="col-md-4" id="seguidores">
+								<strong>Seguidores</strong><br /> <?= $qtd_seguidores ?>
+							</div>
 						</div>
 					</div>
 				</div>
+			<div class="col-md-12 opcoeshome">
+				<a class="btn-group-opcoes-home" href="home.php">Home</a>
+				<a class="btn-group-opcoes-home" href="perfil_usuario.php">Perfil</a>
+				<a class="btn-group-opcoes-home" href="buscar.php">Buscar Pessoas</a>
+				<a class="btn-group-opcoes-home" href="sair.php">Sair</a>
+
 			</div>
+			
+			</div>
+		
+
+
+
+
+
 			<div class="col-md-6">
 				<div class="panel panel-default">
 					<div class="panel-body">

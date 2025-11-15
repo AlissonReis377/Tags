@@ -1,3 +1,22 @@
+*{
+    font-family: "sora", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+
+}
+
+
+
+.sora-font {
+  font-family: "Sora", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+}
+
+
+
 .btn-custom{
     border: 10px;
     background-color: black;
