@@ -48,9 +48,6 @@
     }else{
         echo'houve um erro';
     }
-
-
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -65,262 +62,320 @@
     <!--animte.css-->
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
 
-        <script>
-            new WOW().init();
-        </script>
+    <script>
+        new WOW().init();
+    </script>
 
     <style>
-        body{
-            font-family: Verdana, Geneva, Tahoma, sans-serif;
-            background-color: #1a1a1a;
-            color: #bb86fc;
-            margin: 0;
-            padding: 0;
-            line-height: 1.6;
+       *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+       }
+
+       body{
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        background-color: #000000;
+        color: #ffffff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+       }
+
+       .profile-container{
+        display: flex;
+        gap: 50px;
+        align-items: flex-start;
+        max-width: 900px;
+        padding: 40px;
+       }
+
+       .profile-picture{
+        flex-shrink: 0;
+       }
+
+       .profile-picture img {
+        width: 180px;
+        height: 180px;
+        display: block;
+       }
+
+       .profile-content{
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+       }
+
+       .profile-header{
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        margin-bottom: 20px;
+       }
+
+       .profile-info{
+        flex: 1;
+       }
+
+       .profile-name{
+        font-size: 32px;
+        font-weight: bold;
+        margin-bottom: 5px;
+        color: #ffffff;
+       }
+
+       .profile-username{
+        font-size: 20px;
+        color: #ffffff;
+        margin-bottom: 25px;
+       }
+
+       .profile-bio{
+        font-size: 16px;
+        line-height: 1.5;
+        margin-bottom: 30px;
+        color: #cccccc;
+        max-width: 400px;
+       }
+
+       .profile-stats{
+        display: flex;
+        gap: 40px;
+        margin-bottom: 30px;
+       }
+
+       .stat{
+        text-align: left;
+       }
+
+       .stat-number{
+        font-size: 20px;
+        font-weight: bold;
+        color: #ffffff;
+        display: block;
+       }
+
+       .stat-label{
+        font-size: 14px;
+        color: #888888;
+       }
+
+       .edit-button{
+        background-color: transparent;
+        color: #ffffff;
+        border: 2px solid #ffffff;
+        padding: 10px 30px;
+        border-radius: 20px;
+        font-size: 16px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: all 0.3s;
+        white-space: nowrap;
+        margin-left: 20px;
+       }
+
+       .edit-button:hover{
+        background-color: #ffffff;
+        color: #000000;
+       }
+
+       /* Modo Edição */
+       #edicao-perfil{
+        display: none;
+       }
+
+       .edit-form{
+        background-color: #1a1a1a;
+        padding: 40px;
+        border-radius: 10px;
+        border: 1px solid #333;
+        max-width: 500px;
+        margin: 0 auto;
+       }
+
+       .form-group{
+        margin-bottom: 20px;
+       }
+
+       .form-group label{
+        display: block;
+        color: #ffffff;
+        margin-bottom: 8px;
+        font-size: 14px;
+        font-weight: bold;
+       }
+
+       .form-group input, .form-group textarea{
+        width: 100%;
+        padding: 12px;
+        background-color: #2a2a2a;
+        border: 1px solid #444;
+        border-radius: 5px;
+        color: #fff;
+        font-size: 16px;
+       }
+
+       .form-group textarea{
+        resize: vertical;
+        min-height: 80px;
+       }
+
+       .photo-edit{
+        text-align: center;
+        margin-bottom: 30px;
+       }
+
+       .photo-edit img{
+        width: 150px;
+        height: 150px;
+        margin-bottom: 15px;
+       }
+
+       .photo-buttons{
+        display: flex;
+        gap: 10px;
+        justify-content: center;
+       }
+
+       .photo-buttons button{
+        background-color: #333;
+        color: #fff;
+        border: none;
+        padding: 8px 16px;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 14px;
+       }
+
+       .form-buttons{
+        display: flex;
+        gap: 15px;
+        justify-content: center;
+        margin-top: 25px;
         }
 
-        #visualizacao, #edicao-perfil{
-            padding: 2rem;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        section{
-            background-color: #2d2d2d;
-            padding: 1.5rem;
-            border-radius: 8px;
-            border: 1px solid #444;
-        }
-
-        h1, h2, h3{
-            color: #bb86fc;
-            margin-top: 0;
-        }
-
-        h2{
-            border-bottom: 1px solid #444;
-            padding-bottom: 0.5rem;
-        }
-
-        button{
-            background-color: #bb86fc;
-            color: #1a1a1a;
+        .save-btn{
+            background-color: #ffffff;
+            color: #000000;
             border: none;
-            padding: 0.5rem 1rem;
-            margin: 0.25rem;
-            border-radius: 4px;
-            cursor: pointer;
-            font-family: Verdana, Geneva, Tahoma, sans-serif;
-            font-size: 0.9rem;
+            padding: 12px 30px;
+            border-radius: 20px;
             font-weight: bold;
+            cursor: pointer;
         }
 
-        button:hover{
-            background-color: #9d67e8;
-        }
-
-        table{
-            width: 100%;
-            border-collapse: collapse;
-            margin: 1rem 0;
-        }
-
-        table, th, td{
-            border: 1px solid #555;
-        }
-
-        th,td{
-            padding: 0.75rem;
-            text-align: left;
-        }
-        
-        th{
-            background-color: #3d3d3d;
-            color: #bb86fc;
-        }
-        
-        td{
-            background-color: #2d2d2d;
-            color: #bb86fc;
-        }
-
-        input, textarea, select{
-            width: 100%;
-            padding: 0.5rem;
-            margin: 0.25rem 0;
-            background-color: #3d3d3d;
-            border: 1px solid #555;
-            border-radius: 4px;
-            color: #bb86fc;
-            font-family: Verdana, Geneva, Tahoma, sans-serif;
-        }
-
-        input:focus, textare:focus{
-            outline: none;
-            border-color: #bb86fc;
-        }
-
-        label{
-            color: #bb86fc;
-            display: block;
-            margin: 0.5rem 0 0.25rem 0;
-        }
-
-        ul{
-            list-style-type: none;
-            padding: 0;
-        }
-
-        li{
-            padding: 0.5rem 0;
-            border-bottom: 1px solid #444;
-            color: #bb86fc;
-        }
-
-        li:last-child{
-            border-bottom: none;
-        }
-
-        img{
-            border-radius: 8px;
-            border: 2px solid #bb86fc;
-        }
-
-        .cabecalho-perfil{
-            display: flex;
-            gap: 2rem;
-            align-items: flex-start;
-        }
-
-        .info-perfil{
-            flex: 1;
-        }
-
-        .info-perfil p{
-            color: #bb86fc;
-            margin: 0.5rem 0;
-        }
-
-        .botoes-acao{
-            margin: 1rem 0;
-        }
-
-        @media (max-width: 600px){
-            .cabecalho-perfil{
-                flex-direction: column;
-                text-align: center;
-            }
-            #visualizacao, #edicao-perfil{
-                padding: 1rem;
-            }
+        .cancel-btn{
+            background-color: transparent;
+            color: #ffffff;
+            border: 2px solid #ffffff;
+            padding: 12px 30px;
+            border-radius: 20px;
+            font-weight: bold;
+            cursor: pointer;
         }
     </style>
 </head>
 <body>
     <!--Visualização do perfil -->
     <div id="visualizacao">
-        <section>
-            <!-- Cabecalho do Perfil -->
-         <div class="wow animate__animated animate__fadeIn" data-wow-duration="3s">
-            <div class="cabecalho-perfil">
-                <div>
-                    <img id="foto-visu" src="https://via.placeholder.com/150" alt="Foto_perfil" width="150" height="150">
+        <div class="profile-container">
+            <!-- Foto de Perfil -->
+            <div class="profile-picture">
+                <img id="foto-visu" src="https://via.placeholder.com/180" alt="Foto_perfil" width="180" height="180">
+            </div>
+
+            <!-- Informações -->
+            <div class="profile-content">
+                <div class="profile-header">
+                    <div class="profile-info">
+                        <h1 class="profile-name" id="nome"><?= $_SESSION['usuario'] ?><small>#<?=$_SESSION['id']?></small></h1>
+                        <p class="profile-username" id="username"><?= $_SESSION['username'] ?></p>
+                    </div>
+                    <button class="edit-button" onclick="modoEdicao()">Editar perfil</button>
                 </div>
+                
+                <p class="profile-bio" id="biografia"><?= $_SESSION['bio']; ?></p>
 
-                <div class="info-perfil">
-                    <button onclick="modoEdicao()">Editar perfil</button>
-
-                    <h1 id="nome"><?= $_SESSION['usuario'] ?><small>#<?=$_SESSION['id']?></h1>
-                    <p id="username"><?= $_SESSION['username'] ?></p>
-                    <p id="info-visu"><?= $_SESSION['endereco'] ?></p>
-            
-                <!--Estatitsicas-->
-                <table>
-                    <tr>
-                        <th>Tags</th>
-                        <th>Seguidores</th>
-                        <th>Seguindo</th>
-                    </tr>
-                    <tr>
-                        <td><?=$qtd_tags?></td>
-                        <td><?=$qtd_seguidores?></td>
-                        <td><?=$qtd_seguindo?></td>
-                    </tr>
-                </table>
+                <div class="profile-stats">
+                    <div class="stat">
+                        <span class="stat-number"><?=$qtd_tags?></span>
+                        <span class="stat-label">Tags</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number"><?=$qtd_seguidores?></span>
+                        <span class="stat-label">Seguidores</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number"><?=$qtd_seguindo?></span>
+                        <span class="stat-label">Seguindo</span>
+                    </div>
                 </div>
             </div>
         </div>
-        </section>
-
-        <!--Biografia-->
-        <section>
-        <div class="wow animate__animated animate__fadeIn" data-wow-duration="3s">
-            <h2>Biografia</h2>
-            <p id="biografia"><?= $_SESSION['bio']; ?></p>
-        </div>
-        </section>
-        <!--Informacoes pessoais-->
-        <section>
-        <div class="wow animate__animated animate__fadeIn" data-wow-duration="3s">
-            <h2>Informacoes</h2>
-            <ul>
-                <li>Email: <span id="email-visu"><?= $_SESSION['email']; ?></span></li>
-                <li>Telefone: <span id="telefone-visu"><?= $_SESSION['telefone']; ?></li>
-                <li>Site: <span id="site-visu"><?= $_SESSION['endereco']; ?></span></li>
-                <li>Data de Nascimento: <span id="nascimento-visu"><?= $_SESSION['dt_nasc']; ?></span></li>
-            </ul>
-        </div>
-        </section>
     </div> 
 
     <!-- Modo de edição de perfil  -->
     <div id="edicao-perfil" style="display: none;">
-        <section>
-            <h2>Editar perfil</h2>
+        <div class="edit-form">
+            <h2 style="color: #ffffff; text-align: center; margin-bottom: 30px; font-size: 24px;">Editar Perfil</h2>
 
             <!--Foto de Perfil-->
-            <div>
-                <img id="foto-edicao" src="https://via.placeholder.com/150" alt="foto de perfil" width="150" height="150">
-                <br>
-                <label for="upload-foto">Alterar foto:</label>
-                <input type="file" id="upload-foto" onchange="previewFoto(this)" accept="image/*">
-                <button onclick="removerFoto()">Remover foto</button>
+            <div class="photo-edit">
+                <img id="foto-edicao" src="https://via.placeholder.com/150" alt="foto de perfil">
+                <div class="photo-buttons">
+                    <input type="file" id="upload-foto" onchange="previewFoto(this)" accept="image/*" style="display: none;">
+                    <button onclick="document.getElementById('upload-foto').click()">Alterar foto</button>
+                    <button onclick="removerFoto()">Remover foto</button>
+                </div>
             </div>
 
-        <!--Form de edição-->
-        <form id="form-edicao">
-            <label for="nome-edicao">Nome:</label>
-            <input type="text" id="nome-edicao" value="Laura" placeholder="Seu nome">
+            <!--Form de edição-->
+            <form id="form-edicao">
+                <div class="form-group">
+                    <label for="nome-edicao">Nome:</label>
+                    <input type="text" id="nome-edicao" value="<?= $_SESSION['usuario'] ?>" placeholder="Seu nome">
+                </div>
 
-            <label for="username-edicao">Username:</label>
-            <input type="text" id="username-edicao" value="lauradopix" placeholder="Seu username">
+                <div class="form-group">
+                    <label for="username-edicao">Username:</label>
+                    <input type="text" id="username-edicao" value="<?= $_SESSION['username'] ?>" placeholder="Seu username">
+                </div>
 
-            <label for="cidade-edicao">Cidade:</label>
-            <input type="text" id="cidade-edicao" value="Sao Paulo" placeholder="Sua cidade">
+                <div class="form-group">
+                    <label for="bio-edicao">Biografia:</label>
+                    <textarea id="bio-edicao" rows="4" placeholder="Conte sobre voce!"><?= $_SESSION['bio']; ?></textarea>
+                </div>
 
-            <label for="bio-edicao">Biografia:</label>
-            <textarea id="bio-edicao" rows="4" placeholder="Conte sobre voce!">Gosto de fazer chocolate quente e cafuné em gatos fofinhos! :3</textarea>
+                <div class="form-group">
+                    <label for="email-edicao">Email:</label>
+                    <input type="email" id="email-edicao" value="<?= $_SESSION['email']; ?>" placeholder="SeuEmail@gmail.com">
+                </div>
 
-            <label for="email-edicao">Email:</label>
-            <input type="email" id="email-edicao" value="laura.mataporco@gmail.com" placeholder="SeuEmail@gmail.com">
+                <div class="form-group">
+                    <label for="telefone-edicao">Telefone:</label>
+                    <input type="tel" id="telefone-edicao" value="<?= $_SESSION['telefone']; ?>" placeholder="(11)99999-9999">
+                </div>
 
-            <label for="telefone-edicao">Telefone:</label>
-            <input type="tel" id="telefone-edicao" value="(11)99124-1855" placeholder="(11)99999-9999">
+                <div class="form-group">
+                    <label for="site-edicao">Site:</label>
+                    <input type="url" id="site-edicao" value="<?= $_SESSION['endereco']; ?>" placeholder="www.sitelegal.com">
+                </div>
 
-            <label for="site-edicao">Site:</label>
-            <input type="url" id="site-edicao" value="www.laurasexshop.com" placeholder="www.sitelegal.com">
+                <div class="form-group">
+                    <label for="nascimento-edicao">Data de Nascimento:</label>
+                    <input type="date" id="nascimento-edicao" value="<?= $_SESSION['dt_nasc']; ?>">
+                </div>
 
-            <label for="nascimento-edicao">Data de Nascimento:</label>
-            <input type="date" id="nascimento-edicao" value="2006-05-06">
-
-        <!--Botões de Ação-->
-        <div class="botoes-acao">
-            <button type="button" onclick="salvarAlteracoes()">Salvar alterações</button>
-            <button type="button" onclick="cancelarEdicao()">Cancelar</button>
+                <!--Botões de Ação-->
+                <div class="form-buttons">
+                    <button type="button" class="save-btn" onclick="salvarAlteracoes()">Salvar alterações</button>
+                    <button type="button" class="cancel-btn" onclick="cancelarEdicao()">Cancelar</button>
+                </div>
+            </form>
         </div>
-        </form>
-        </section>
     </div>
+
 <script>
     function modoEdicao(){
         document.getElementById('visualizacao').style.display = 'none';
@@ -333,22 +388,16 @@
     }
 
     function cancelarEdicao(){
-        if(confirm('Descartar alteracoes interrogacao')){
+        if(confirm('Descartar alterações?')){
             voltarVisualizacao();
         }
     }
+
     function salvarAlteracoes(){
         //Atualizar dados na visualizacao
         document.getElementById('nome').textContent = document.getElementById('nome-edicao').value;
-        document.getElementById('username').textContent = '@' + document.getElementById('username-edicao').value;
+        document.getElementById('username').textContent = document.getElementById('username-edicao').value;
         document.getElementById('biografia').textContent = document.getElementById('bio-edicao').value;
-        document.getElementById('email-visu').textContent = document.getElementById('email-edicao').value;
-        document.getElementById('telefone-visu').textContent = document.getElementById('telefone-edicao').value;
-        document.getElementById('site-visu').textContent = document.getElementById('site-edicao').value;
-
-        //Atualizar Informacoes resumidas
-        const cidade = document.getElementById('cidade-edicao').value
-        document.getElementById('info-visu').textContent = `${cidade}`;
 
         alert('Perfil atualizado com sucesso');
         voltarVisualizacao();
@@ -366,7 +415,7 @@
     }
 
     function removerFoto(){
-        const fotoPadrao = 'https://via.placeholder.com/150';
+        const fotoPadrao = 'https://via.placeholder.com/180';
         document.getElementById('foto-edicao').src = fotoPadrao;
         document.getElementById('foto-visu').src = fotoPadrao;
     }
