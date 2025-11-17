@@ -1,3 +1,10 @@
+<?php
+
+
+?>
+
+
+
 <!DOCTYPE HTML>
 <html lang="pt-br">
 	<head>
@@ -48,7 +55,7 @@
 	    	<div class="col-md-6 jumbotron" style='font-family: monospace;'>
 	    		<h3>Inscreva-se já.</h3>
 	    		<br />
-				<form method="post" action="registra_usuario.php" id="formCadastrarse">
+				<form method="post" action="registra_usuario.php" id="formCadastrarse" enctype="multipart/form-data">
 					<div class="form-group">
 						<input type="text" class="form-control" id="usuario" name="usuario" placeholder="Usuário" required="requiored">
 						<?php if(isset($_GET['erro_usuario'])): ?>
@@ -84,6 +91,9 @@
 					<div class="form-group">
 						<input type="password" class="form-control" id="senha" name="senha" placeholder="Senha" required="requiored">
 					</div>
+					<label>Foto de perfil:</label>
+    				<input type="file" name="foto" accept="image/*">
+					<br>
 					
 					<button type="submit" class="btn btn-custom form-control">Inscreva-se</button>
 				</form>

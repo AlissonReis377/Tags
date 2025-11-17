@@ -29,24 +29,33 @@ $resultado_id = mysqli_query($link, $sql);
 
 if ($resultado_id) {
     while ($registro = mysqli_fetch_array($resultado_id, MYSQLI_ASSOC)) {
-        echo '<script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>';
-        echo '<script>new WOW().init();</script>';
-        echo '<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>';
+
         echo '<div class="wow animate__animated animate__fadeIn" data-wow-duration="1.5s">';
-        echo '<div class="list-group-item" id="tag_'.$registro['id_tag'].'">';
+
+        
+        echo '<div class="list-group-item tags_post" id="tag_'.$registro['id_tag'].'">';
+
             echo '<h4 class="list-group-item-heading">';
                 echo $registro['usuario'].' <small>#'.$registro['id_usuario'].'</small>';
             echo '</h4>';
             
             echo '<p class="list-group-item-text">'.htmlspecialchars($registro['tag']).'</p>';
-            if ($registro['id_usuario'] == $id_usuario_logado) {
-                echo '<div class="" id="tag_123">';
-                echo '<br><button class="btn btn-danger btn-xs btn-deletar-tag" data-id="'.$registro['id_tag'].'">Apagar</button>';
-                echo '</div>';
-            }
+
             echo '<hr />';
             echo '<small>'.$registro['data_formatada'].'</small>';
 
+            if ($registro['id_usuario'] == $id_usuario_logado) {
+                echo'<div class="dropdown">
+                        <button class="btn dropdown" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-three-dots-vertical" viewBox="0 0 16 16">
+  <path d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0m0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0m0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0"/>
+</svg>
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item btn-deletar-tag" data-id="'.$registro['id_tag'].'">Apagar</a></li>
+                        </ul>
+                        </div>';
+            }
 
         echo '</div>';
         echo '<br>';
