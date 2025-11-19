@@ -6,6 +6,8 @@ if (!isset($_SESSION['usuario'])) {
     exit();
 }
 
+$foto = $registro['foto_perfil'] ?? 'default.jpg';
+
 require_once('db.class.php');
 
 $id_usuario_logado = $_SESSION['id'];
@@ -19,10 +21,12 @@ $sql = "
         DATE_FORMAT(t.data_inclusao, '%d %b %Y %T') AS data_formatada,
         t.tag,
         u.usuario,
-        u.id_usuario 
-    FROM tag AS t 
-    JOIN usuarios AS u ON (t.id_usuario = u.id_usuario)
+        u.id_usuario,
+        u.foto_perfil
+    FROM tag AS t
+    JOIN usuarios AS u ON t.id_usuario = u.id_usuario
     ORDER BY t.data_inclusao DESC
+
 ";
 
 $resultado_id = mysqli_query($link, $sql);
@@ -35,12 +39,14 @@ if ($resultado_id) {
         
         echo '<div class="list-group-item tags_post" id="tag_'.$registro['id_tag'].'">';
 
-            echo '<h4 class="list-group-item-heading">';
-                echo $registro['usuario'].' <small>#'.$registro['id_usuario'].'</small>';
-            echo '</h4>';
-            
-            echo '<p class="list-group-item-text">'.htmlspecialchars($registro['tag']).'</p>';
+            $foto = $registro['foto_perfil'] ?? 'default.jpg';
 
+            echo '<h4 class="list-group-item-heading usuario">';
+                echo '<img src="uploads/perfil/'.$foto.'" class="rounded-circle me-3" width="50" height="50" />'.$registro['usuario'].' <small>#'.$registro['id_usuario'].'</small>';
+            echo '</h4>';
+            echo '<div class="tag_post_registo">';
+            echo '<p class="list-group-item-text">'.htmlspecialchars($registro['tag']).'</p>';
+            echo '</div>';
             echo '<hr />';
             echo'<div class="container">';
             echo'<div class="col-md-6">';

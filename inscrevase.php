@@ -56,14 +56,14 @@
 	    		<br />
 				<form method="post" action="registra_usuario.php" id="formCadastrarse" enctype="multipart/form-data">
 					<div class="form-group">
-						<input type="text" class="form-control" id="usuario" name="usuario" placeholder="Usuário" required="requiored">
+						<input type="text" class="form-control" id="usuario" name="usuario" placeholder="Usuário" required="requiored" maxlength="15">
 						<?php if(isset($_GET['erro_usuario'])): ?>
     					<p style="color: red;">Usuário já existe</p>
 						<?php endif; ?>
 					</div>
 
 					<div class="form-group">
-						<input type="text" class="form-control" id="username" name="username" placeholder="@username" required="requiored">
+						<input type="text" class="form-control" id="username" name="username" placeholder="@username" required="requiored" maxlength="10">
 						<?php if(isset($_GET['erro_username'])): ?>
     					<p style="color: red;">Username já existe</p>
 						<?php endif; ?>
@@ -91,7 +91,7 @@
 						<input type="password" class="form-control" id="senha" name="senha" placeholder="Senha" required="requiored">
 					</div>
 					<label>Foto de perfil:</label>
-    				<input type="file" name="foto" accept="image/*">
+    				<input type="file" name="foto_perfil" accept="image/*">
 					<br>
 					
 					<button type="submit" class="btn btn-custom form-control">Inscreva-se</button>

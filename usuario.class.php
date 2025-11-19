@@ -11,9 +11,10 @@ class Usuario{
     private $bio;
     private $data_nascimento;
     private $endereco;
+    private $fotoPerfil;
 
 
-    public function __construct($usuario, $email, $senha, $username, $telefone, $bio, $data_nasc, $endereco, $conexao)//metodo construtor para o objeto usuario
+    public function __construct($usuario, $email, $senha, $username, $telefone, $bio, $data_nasc, $endereco, $fotoPerfil, $conexao)//metodo construtor para o objeto usuario
     {
         $this->usuario = $usuario;  //esse metodo vai ser chamado automaticamente quando
         $this->email = $email;      //criar um novo usuario, ele constroi e guarda os valores
@@ -23,23 +24,43 @@ class Usuario{
         $this->bio = $bio;
         $this->data_nascimento = $data_nasc;
         $this->endereco = $endereco;
+        $this->fotoPerfil = $fotoPerfil;
         $this->conexao = $conexao;
     }
 
     public static function autenticarUsuario($usuario, $senha, $conexao) { //metodo criado apenas para autenticar usuarios pq se manter do jeito que tava dá erro
-        $instancia = new self($usuario, null, $senha, null, null, null, null, null, $conexao);
+        $instancia = new self($usuario, null, $senha, null, null, null, null, null, null, $conexao);
         return $instancia;
     }
 
 
 
     public function salvar(){
-        $sql = "INSERT INTO USUARIOS (usuario, email, senha, username, endereco, dt_nasc, telefone, bio) VALUES (?, ?, ?, ?, ?, ?, ? ,?)"; //usa os pontos de interrogação onde os dados vão entrar
+        $sql = "INSERT INTO USUARIOS(
+        usuario, 
+        email, 
+        senha, 
+        username, 
+        endereco, 
+        dt_nasc, 
+        telefone, 
+        bio, 
+        foto_perfil) 
+        VALUES (
+        ?, 
+        ?, 
+        ?, 
+        ?, 
+        ?, 
+        ?, 
+        ?,
+        ?, 
+        ?)"; //usa os pontos de interrogação onde os dados vão entrar
                                         //?,     ?,     ?,      ?,         ?,       ?,       ? ,     ?
         $stmt = $this->conexao->prepare($sql);
 
         if ($stmt){
-            $stmt->bind_param("ssssssss", $this->usuario, $this->email, $this->senha , $this->username, $this->endereco, $this->data_nascimento, $this->telefone, $this->bio);
+            $stmt->bind_param("sssssssss", $this->usuario, $this->email, $this->senha , $this->username, $this->endereco, $this->data_nascimento, $this->telefone, $this->bio, $this->fotoPerfil);
             return $stmt->execute();
         }else{
             return false;

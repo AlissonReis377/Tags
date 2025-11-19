@@ -37,3 +37,9 @@
 .text span{
 font-family: monospace;
 }
+
+.img-perfil {
+    object-fit: cover !important; /* impede distorção */
+    object-position: center !; /* centraliza a imagem no recorte */
+    border-radius: 50%; /* se quiser redonda */
+}

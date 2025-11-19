@@ -1,3 +1,7 @@
+.poppins{
+    font-family: "poppins";
+}
+
 
 
 body {
@@ -27,7 +31,7 @@ body {
     text-align: center;
     text-decoration: none !important;
     color: white;
-    font-family: "sora", sans-serif;
+    font-family: "poppins", sans-serif;
     font-optical-sizing: auto;
     font-weight: 500;
     font-style: normal;
@@ -43,6 +47,7 @@ body {
     color: white;
     transition: ease-in-out 0.3s;
     border-color: #0d0f14;
+
 }.tags_post:hover{
     transition: ease-in-out 0.3s;
 }
@@ -71,3 +76,76 @@ body {
     margin-left: 0; /* garante que não tem margem puxando pro meio */
 }
     
+.btn-group-opcoes-home-mobile{
+    display: none;
+}
+
+.usuario{
+    font-family: monospace, sans-serif;
+}
+
+.tag_post_registo{
+    font-family: "poppins", sans-serif;
+
+}
+
+@media (max-width: 767.98px){
+
+
+    .perfil-container, .col-md-6, .col-md-3:last-child{
+        margin-bottom: 20px;
+    }
+    .perfil-home img{
+        width: 100px;
+        height: 100px;
+    }
+
+    .btn-group-opcoes-home, .btn-group-opcoes-home-sair{
+        display: none;
+    }
+
+    .buscar-pessoas{
+        display: none;
+    }
+
+    .btn-group-opcoes-home-mobile{
+        display: block;
+        margin-top: 10px;
+    }
+
+
+
+        .perfilhome h4 {
+        font-size: 1.2rem; /* antes podia ser 1rem ou menor */
+    }
+
+    .perfilhome h5 {
+        font-size: 1rem;
+    }
+
+    .perfilhome strong {
+        font-size: 1rem;
+    }
+
+    /* Botões */
+    .btn-group-opcoes-home, .btn-group-opcoes-home-sair {
+        font-size: 1rem; /* aumenta leitura do botão */
+        padding: 0.5rem 1rem;
+    }
+
+    /* Posts / Conteúdo */
+    #tags, #pessoas {
+        font-size: 1rem;
+    }
+
+    /* Inputs e textarea */
+    input.form-control, textarea.form-control {
+        font-size: 1rem;
+    }
+
+    /* Navbar */
+    .navbar .nav-link {
+        font-size: 1rem;
+    }
+}
+
