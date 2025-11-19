@@ -3,7 +3,6 @@
     font-optical-sizing: auto;
     font-weight: 500;
     font-style: normal;
-
 }
 
 
@@ -29,4 +28,12 @@
     background-color: rgb(53, 53, 53);
     color: white;
     text-decoration: none;
+}
+
+.text{
+    font-size: 40px;
+    font-weight: 600;
+}
+.text span{
+font-family: monospace;
 }

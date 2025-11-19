@@ -42,8 +42,11 @@ if ($resultado_id) {
             echo '<p class="list-group-item-text">'.htmlspecialchars($registro['tag']).'</p>';
 
             echo '<hr />';
+            echo'<div class="container">';
+            echo'<div class="col-md-6">';
             echo '<small>'.$registro['data_formatada'].'</small>';
-
+            echo '</div>';
+            echo'<div class="col" style="margin-left: 200px">';
             if ($registro['id_usuario'] == $id_usuario_logado) {
                 echo'<div class="dropdown">
                         <button class="btn dropdown" type="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -56,7 +59,8 @@ if ($resultado_id) {
                         </ul>
                         </div>';
             }
-
+            echo '</div>';
+            echo '</div>';
         echo '</div>';
         echo '<br>';
     }

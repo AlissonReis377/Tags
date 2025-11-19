@@ -75,7 +75,6 @@
 	            	<a id="entrar" data-target="#" href="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Entrar</a>
 					<ul class="dropdown-menu" aria-labelledby="entrar">
 						<div class="col-md-12">
-				    		<p>Você possui uma conta?</h3>
 				    		<br />
 							<form method="post" action="validar_acesso.php" id="formLogin">
 								<div class="form-group">
@@ -116,10 +115,11 @@
     <!-- Coluna do texto -->
     	<div class="col-md-6">
       		<div class="jumbotron" style="font-family: monospace;">
-        		<h1 class="animate__animated animate__bounce animate__faster">Bem vindo ao Tags!</h1>
-        		<p>Comece agora mesmo!</p>
+        		<h1 class="animate__animated animate__bounce animate__faster">Tags!</h1>
+				<div class="text"><span class="typing"></span></div>
         		<a class="btn btn-custom" href="inscrevase.php">Inscrever-se</a>
-				<br><br><br><br>
+				<hr />
+				<label>Entrar</label>
 				<form method="post" action="validar_acesso.php" id="formLogin">
 								<div class="form-group">
 									<input type="text" class="form-control" id="campo_usuario" name="usuario" placeholder="Usuário" />
@@ -148,6 +148,19 @@
 
 	    </div>
 </div>
-		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+
+
+<script>
+	var typing = new Typed (".typing", {
+		strings : ["Comece agora", "Faça amigos", "Inicie suas Tags!",],
+		typedSpeed: 60,
+		backSpeed: 60,
+		loop: true
+	});
+</script>
+
+
 	</body>
 </html>

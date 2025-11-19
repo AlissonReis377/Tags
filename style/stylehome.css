@@ -1,3 +1,5 @@
+
+
 body {
     background-color:#0d0f14
 }
@@ -9,7 +11,7 @@ body {
     border-radius: 5%;
     padding: 10%;
     border-color: rgb(0, 24, 56);
-    transition: ease-in-out 0.3s;
+
 }
 
 .perfilhome h2{
@@ -58,3 +60,14 @@ body {
     border-radius: 20px;
     padding: 20px;
 }
+
+.container {
+    display: flex;
+    justify-content: flex-start; /* joga tudo pro canto */
+    gap: 30px; /* espaço entre o perfil e o conteúdo */
+}
+
+.perfil-box {
+    margin-left: 0; /* garante que não tem margem puxando pro meio */
+}
+    
