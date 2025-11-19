@@ -7,6 +7,7 @@ if(!isset($_SESSION['usuario'])){
     header('location: index.php?erro=1');
 }
 
+
 require_once('db.class.php');
 require_once('Usuario.class.php');
 require_once('consulta.class.php');
@@ -16,18 +17,66 @@ $link = $objDb->conecta_mysql();
 
 $id_usuario = $_SESSION['id'];
 
+
+//TOTAL DE TAGS
 $sql= "SELECT COUNT(*) AS qtd_tags FROM tag WHERE id_usuario = $id_usuario";
 $resultado_id = mysqli_query($link, $sql);
-$qtd_tags = ($resultado_id) ? mysqli_fetch_array($resultado_id, MYSQLI_ASSOC)['qtd_tags'] : 0;
 
-$sql= "SELECT COUNT(*) AS qtd_seguidores FROM usuarios_seguidores WHERE id_usuario = $id_usuario";
-$resultado_id = mysqli_query($link, $sql);
-$qtd_seguidores = ($resultado_id) ? mysqli_fetch_array($resultado_id, MYSQLI_ASSOC)['qtd_seguidores'] : 0;
+if (!$resultado_id) {
+    die("ERRO SQL (tags): " . mysqli_error($link));
+}
 
-$sql= "SELECT COUNT(seguindo) AS qtd_seguindo FROM usuarios_seguidores WHERE id_usuario = $id_usuario";
+$linha = mysqli_fetch_assoc($resultado_id);
+$qtd_tags = $linha ? $linha['qtd_tags'] : 0;
+
+
+
+
+//Total de seguindo
+$sql= "SELECT COUNT(*) AS qtd_seguindo 
+       FROM usuarios_seguidores 
+       WHERE id_usuario = $id_usuario
+       AND seguindo = 1";
+
 $resultado_id = mysqli_query($link, $sql);
-$qtd_seguindo = ($resultado_id) ? mysqli_fetch_array($resultado_id, MYSQLI_ASSOC)['qtd_seguindo'] : 0;
+
+if (!$resultado_id) {
+    die("ERRO SQL (seguindo): " . mysqli_error($link));
+}
+
+$linha = mysqli_fetch_assoc($resultado_id);
+$qtd_seguindo = $linha ? $linha['qtd_seguindo'] : 0;
+
+
+
+
+//Total de seguidores
+$sql= "SELECT COUNT(*) AS qtd_seguidores
+       FROM usuarios_seguidores 
+       WHERE id_usuario_seguidor = $id_usuario
+       AND seguindo = 1";
+
+$resultado_id = mysqli_query($link, $sql);
+
+if (!$resultado_id) {
+    die("ERRO SQL (seguidores): " . mysqli_error($link));
+}
+
+$linha = mysqli_fetch_assoc($resultado_id);
+$qtd_seguidores = $linha ? $linha['qtd_seguidores'] : 0;
+
+
+$sql = "SELECT foto_perfil FROM usuarios WHERE id_usuario = $id_usuario";
+$resultado_id = mysqli_query($link, $sql);
+
+if (!$resultado_id) {
+    die("ERRO SQL (foto): " . mysqli_error($link));
+}
+
+$linha = mysqli_fetch_assoc($resultado_id);
+$fotoPerfil = $linha ? $linha['foto_perfil'] : null;
 ?>
+
 
 <!DOCTYPE HTML>
 <html lang="pt-br">
@@ -42,6 +91,10 @@ $qtd_seguindo = ($resultado_id) ? mysqli_fetch_array($resultado_id, MYSQLI_ASSOC
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
     <link rel="stylesheet" href="style/stylehome.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
 
 </head>
 <body>
@@ -70,7 +123,7 @@ $qtd_seguindo = ($resultado_id) ? mysqli_fetch_array($resultado_id, MYSQLI_ASSOC
         <div class="col-md-3 perfil-container">
             <div class="card perfilhome">
                 <div class="card-body text-center">
-                    <img src="https://img.freepik.com/fotos-gratis/fotografia-em-close-up-de-um-lindo-gatinho-domestico-de-gengibre-sentado-em-uma-superficie-branca_181624-35913.jpg?semt=ais_hybrid&w=740&q=80" class="rounded-circle img-fluid mb-3"/>
+                    <img src="uploads/perfil/<?= $fotoPerfil ?: 'default.jpg' ?>" class="rounded-circle img-fluid mb-3"/>
                     <h4><?= $_SESSION['usuario'] ?> <small>#<?= $_SESSION['id'] ?></small></h4>
                     <h5 class="text-muted"><?= $_SESSION['bio'] ?></h5>
                     <hr>
@@ -81,7 +134,9 @@ $qtd_seguindo = ($resultado_id) ? mysqli_fetch_array($resultado_id, MYSQLI_ASSOC
                         <div class="col-6">
                             <strong>Seguidores</strong><br><?= $qtd_seguidores ?>
                         </div>
+                    
                     </div>
+                    <a class="btn btn-outline-secondary btn-group-opcoes-home-mobile" href="#" data-bs-toggle="modal" data-bs-target="#editarPerfilModal">Editar perfil</a>
                 </div>
             </div>
 
@@ -89,10 +144,53 @@ $qtd_seguindo = ($resultado_id) ? mysqli_fetch_array($resultado_id, MYSQLI_ASSOC
                 <a class="btn btn-outline-secondary btn-group-opcoes-home" href="home.php">Home</a>
                 <!--IMPLEMENTAÇÃO FUTURA<a class="btn btn-outline-secondary btn-group-opcoes-home" href="perfil_usuario.php">Perfil</a>
                 <a class="btn btn-outline-secondary btn-group-opcoes-home" href="buscar.php">Buscar Pessoas</a>-->
+                <a class="btn btn-outline-secondary btn-group-opcoes-home" href="#" data-bs-toggle="modal" data-bs-target="#editarPerfilModal">Editar perfil</a>
                 <a class="btn btn-outline-danger btn-group-opcoes-home-sair" href="sair.php">Sair</a>
             </div>
         </div>
 
+
+        <!--modal para editar perfil-->
+        <div class="modal fade" id="editarPerfilModal" tabindex="-1">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    
+                    <div class="modal-header">
+                        <h5 class="modal-title">Editar Perfil</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                    </div>
+                    <br>
+                    <div class="d-flex justify-content-center mb-3">
+                        <img src="uploads/perfil/<?= $fotoPerfil ?: 'default.jpg' ?>" class="rounded-circle object-fit-cover" width="180">
+                    </div>
+                    
+                    <div class="modal-body">
+                        <form method="POST" action="editar_perfil.php" enctype="multipart/form-data">
+                            
+                            <div class="mb-3">
+                                <label>Nome:</label>
+                                <input type="text" name="nome" class="form-control" required="requiored" maxlength="15" value="<?= $_SESSION['usuario'] ?>">
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label>Foto de perfil:</label>
+                                <input type="file" name="foto_perfil" class="form-control">
+                                
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label>Bio:</label>
+                                <textarea class="form-control" name="bio" maxlength="32"><?= $_SESSION['bio'] ?></textarea>
+                            </div>
+                            
+                            <button type="submit" class="btn btn-secondary btn-group-opcoes-home">Salvar</button>
+                            
+                        </form>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
         <!-- Criar Tag -->
         <div class="col-md-6">
             <div class="card mb-3">
@@ -110,61 +208,20 @@ $qtd_seguindo = ($resultado_id) ? mysqli_fetch_array($resultado_id, MYSQLI_ASSOC
         </div>
 
         <!-- Buscar Pessoas -->
-        <div class="col-md-3">
+        <div class="col-md-3 buscar-pessoas">
             <div class="card">
                 <div class="card-body">
                     <form id="form_procurar_pessoas" class="input-group">
                         <input type="text" id="nome_pessoa" name="nome_pessoa" class="form-control" placeholder="Quem está procurando?" maxlength="200" />
                         <button class="btn btn-secondary" id="btn_procurar_pessoa" type="button"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
   <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/>
-</svg></button>
+</svg></button>         
                     </form>
                 </div>
                 <div id="pessoas" class="list-group"></div>
             </div>
         
-				<div class="card card-novidades">
-					<h4 class="" style="font-family: monospace;">Versão 1.0</h4>
-						<div class="accordion" id="accordionExample">
-							<div class="accordion-item">
-								<h2 class="accordion-header">
-								<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-									Mudança de layout
-								</button>
-								</h2>
-								<div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
-								<div class="accordion-body">
-									<strong>This is the first item’s accordion body.</strong> It is shown by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It’s also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
-								</div>
-								</div>
-							</div>
-							<div class="accordion-item">
-								<h2 class="accordion-header">
-								<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-									Comunidades
-								</button>
-								</h2>
-								<div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
-								<div class="accordion-body">
-									<strong>This is the second item’s accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It’s also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
-								</div>
-								</div>
-							</div>
-							<div class="accordion-item">
-								<h2 class="accordion-header">
-								<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-									Foto de perfil
-								</button>
-								</h2>
-								<div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
-								<div class="accordion-body">
-									<strong>This is the third item’s accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It’s also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
-								</div>
-								</div>
-							</div>
-						</div>
-				</div>
-		</div>
+				
 
     </div>
 </div>
