@@ -1,6 +1,26 @@
+
 # Site oficial
 
   Finalmente lançamos nosso site, confira: https://tags.gamer.gd/home.php
+
+# Mudanças de layout
+
+  Decidimos dar uma repaginada no nosso projeto! Saímos de um estilo mais minimalista e simples para um layout mais completo, moderno e funcional. Agora, cada elemento está melhor organizado: o perfil, os posts e as opções aparecem de forma mais clara e intuitiva, tornando a experiência mais agradável tanto no desktop quanto no celular. É uma evolução que deixa o projeto mais próximo do que imaginávamos para os nossos usuários!
+
+- Home Page
+<img width="1898" height="906" alt="Captura de tela 2025-11-19 165758" src="https://github.com/user-attachments/assets/83d29466-a103-4893-9f0e-62fdebb55d17" />
+
+- Home Page mobile
+  
+  <img width="746" height="914" alt="image" src="https://github.com/user-attachments/assets/5e7390b0-08f2-420f-b9ab-9954e3348331" />
+
+- Editar Perfil
+  
+  
+<img width="1919" height="1028" alt="Captura de tela 2025-11-19 165818" src="https://github.com/user-attachments/assets/93fb8850-fd13-47df-82d2-3f75040537a8" />
+
+
+
 
 # Mudanças do projeto
   O projeto mudou! Agora ele é desenvolvido por uma equipe de amigos, contando com dois devs, um disegner e dois QA. 
