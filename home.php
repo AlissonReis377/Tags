@@ -54,9 +54,9 @@ $qtd_seguindo = ($resultado_id) ? mysqli_fetch_array($resultado_id, MYSQLI_ASSOC
         </button>
         <div class="collapse navbar-collapse" id="navbar">
             <ul class="navbar-nav ms-auto">
-                <li class="nav-item"><a class="nav-link" href="perfil_usuario.php">Perfil</a></li>
+                <!--Implementação futura<li class="nav-item"><a class="nav-link" href="perfil_usuario.php">Perfil</a></li>
                 <li class="nav-item"><a class="nav-link" href="buscar.php">Buscar</a></li>
-                <li class="nav-item"><a class="nav-link" href="#">Configurações</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">Configurações</a></li>-->
                 <li class="nav-item"><a class="nav-link" href="sair.php">Sair</a></li>
             </ul>
         </div>
@@ -67,7 +67,7 @@ $qtd_seguindo = ($resultado_id) ? mysqli_fetch_array($resultado_id, MYSQLI_ASSOC
     <div class="row mt-4">
 
         <!-- Perfil -->
-        <div class="col-md-3">
+        <div class="col-md-3 perfil-container">
             <div class="card perfilhome">
                 <div class="card-body text-center">
                     <img src="https://img.freepik.com/fotos-gratis/fotografia-em-close-up-de-um-lindo-gatinho-domestico-de-gengibre-sentado-em-uma-superficie-branca_181624-35913.jpg?semt=ais_hybrid&w=740&q=80" class="rounded-circle img-fluid mb-3"/>
@@ -87,8 +87,8 @@ $qtd_seguindo = ($resultado_id) ? mysqli_fetch_array($resultado_id, MYSQLI_ASSOC
 
             <div class="mt-3 d-grid gap-2 opcoeshome">
                 <a class="btn btn-outline-secondary btn-group-opcoes-home" href="home.php">Home</a>
-                <a class="btn btn-outline-secondary btn-group-opcoes-home" href="perfil_usuario.php">Perfil</a>
-                <a class="btn btn-outline-secondary btn-group-opcoes-home" href="buscar.php">Buscar Pessoas</a>
+                <!--IMPLEMENTAÇÃO FUTURA<a class="btn btn-outline-secondary btn-group-opcoes-home" href="perfil_usuario.php">Perfil</a>
+                <a class="btn btn-outline-secondary btn-group-opcoes-home" href="buscar.php">Buscar Pessoas</a>-->
                 <a class="btn btn-outline-danger btn-group-opcoes-home-sair" href="sair.php">Sair</a>
             </div>
         </div>
@@ -101,6 +101,7 @@ $qtd_seguindo = ($resultado_id) ? mysqli_fetch_array($resultado_id, MYSQLI_ASSOC
                         <input type="text" id="texto_tag" name="texto_tag" class="form-control" placeholder="Comece suas Tags!" maxlength="200" />
                         <button class="btn btn-secondary" id="btn_tag" type="button">Fazer Tag</button>
                     </form>
+                    <small id="contador" style="color: #aaa;">0 / 200</small>
                     <div id="mensagem_sucesso" class="text-success fw-bold mt-2" style="display: none;"></div>
                 </div>
             </div>
@@ -222,6 +223,25 @@ $(document).ready(function(){
         }
     });
 });
+
+    const input = document.getElementById('texto_tag');
+    const contador = document.getElementById('contador');
+    const limite = 200;
+
+    input.addEventListener('input', ()=> {
+        let total = input.value.length;
+
+
+        ///atualiza contador
+        contador.textContent = `${total} / ${limite} caracteres`;
+
+        ///segurança extra para impedir ultrapassar colando texto grande
+
+        if (total > limite){
+            input.value = input.value.substring(0, limite);
+        }
+    });
+
 </script>
 
 </body>
