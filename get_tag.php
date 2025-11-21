@@ -18,7 +18,7 @@ $link = $objDb->conecta_mysql();
 $sql = "
     SELECT 
         t.id_tag,
-        DATE_FORMAT(t.data_inclusao, '%d %b %Y %T') AS data_formatada,
+        DATE_FORMAT(t.data_inclusao, '%d %b %Y') AS data_formatada,
         t.tag,
         u.usuario,
         u.id_usuario,
@@ -51,6 +51,13 @@ if ($resultado_id) {
             echo'<div class="container">';
             echo'<div class="col-md-6">';
             echo '<small>'.$registro['data_formatada'].'</small>';
+        
+            echo '
+            <a href="#" class="btn btn-outline-primary btn-sm abrirResponder"
+            data-id="'.$registro['id_tag'].'">Responder</a>';
+
+
+
             echo '</div>';
             echo'<div class="col" style="margin-left: 200px">';
             if ($registro['id_usuario'] == $id_usuario_logado) {

@@ -82,6 +82,7 @@ $fotoPerfil = $linha ? $linha['foto_perfil'] : null;
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tags!</title>
 
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
@@ -91,6 +92,8 @@ $fotoPerfil = $linha ? $linha['foto_perfil'] : null;
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
     <link rel="stylesheet" href="style/stylehome.css">
+    
+    <link rel="icon" href="imagens/tags.png" type="image/png">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -183,7 +186,7 @@ $fotoPerfil = $linha ? $linha['foto_perfil'] : null;
                                 <textarea class="form-control" name="bio" maxlength="32"><?= $_SESSION['bio'] ?></textarea>
                             </div>
                             
-                            <button type="submit" class="btn btn-secondary btn-group-opcoes-home">Salvar</button>
+                            <button type="submit" class="btn btn-secondary">Salvar</button>
                             
                         </form>
                     </div>
@@ -225,11 +228,98 @@ $fotoPerfil = $linha ? $linha['foto_perfil'] : null;
 
     </div>
 </div>
+<div class="modal fade" id="ResponderModal" tabindex="-1">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="tags_post" style="padding: 100px;">
+                        <div class="d-flex align-items-center mb-3">
+                            <img src="uploads/perfil/<?= $foto ?>" 
+                                class="rounded-circle me-3" 
+                                width="50" height="50">
+
+                            <h5>
+                                <?= htmlspecialchars($registro['usuario']) ?>
+                                <small>#<?= $registro['id_usuario'] ?></small>
+                            </h5>
+                        </div>
+
+                        <p class="text-muted"><?= htmlspecialchars($registro['data_formatada']) ?></p>
+
+                        <div class="border rounded p-3 mb-4">
+                            <?= nl2br(htmlspecialchars($registro['tag'])) ?>
+                        </div>
+
+                        <form method="post" action="responder_post.php">
+                            <input type="hidden" name="resposta_de" value="<?= $id_tag ?>">
+
+                            <textarea name="texto" class="form-control"
+                                    maxlength="200" placeholder="Digite sua resposta..." required></textarea>
+
+                            <button class="btn btn-primary mt-3">Responder</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+</div>
+
+
+
+<!-- Fundo escuro -->
+<div id="overlayResponder" 
+     style="display:none; position:fixed; top:0; left:0; width:100%; height:100%;
+            background:rgba(0, 0, 0, 0.91); z-index:9998;">
+</div>
+
+<!-- Janelinha central -->
+<div id="modalResponder" 
+     style="display:none; position:fixed; top:50%; left:50%;
+            transform:translate(-50%, -50%);
+            width:800px; max-width:90%;
+            background:black; padding:20px; border-radius:10px;
+            box-shadow:0 0 20px rgba(0,0,0,.3); z-index:9999;">
+</div>
+
+
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
 <script> new WOW().init(); </script>
 
 <script>
+$(document).on("click", ".abrirResponder", function(e){
+    e.preventDefault();
+
+    let id_tag = $(this).data("id");
+
+    $("#overlayResponder").fadeIn(200);
+    $("#modalResponder").fadeIn(200).html("<p>Carregando...</p>");
+
+    $.get("responder.php?id=" + id_tag, function(retorno){
+        $("#modalResponder").html(retorno);
+    });
+});
+
+// fechar clicando fora
+$("#overlayResponder").on("click", function(){
+    $("#overlayResponder").fadeOut(200);
+    $("#modalResponder").fadeOut(200);
+});
+
+
+
+// Fechar janela quando clicar fora
+document.addEventListener("click", function(e){
+    const janela = document.getElementById("janelaResponder");
+
+    if(e.target === janela) return;
+
+    // fecha se clicar fora
+    if(!janela.contains(e.target) && !e.target.classList.contains("abrirResponder")){
+        janela.style.right = "-500px";
+    }
+});
+
+
 $(document).ready(function(){
 
     $(document).on('click', '.btn-deletar-tag', function(){
