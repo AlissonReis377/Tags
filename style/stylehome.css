@@ -1,152 +1,163 @@
-.poppins{
-    font-family: "poppins";
+/* ================= RESET ================= */
+* {
+    box-sizing: border-box;
 }
-
-
 
 body {
-    background-color:#0d0f14
+    background-color: #000;
+    margin: 0;
+    padding-top: 90px;
+    font-family: "Poppins", sans-serif;
+    overflow-x: hidden;
 }
 
-
-.perfilhome{
-    background-color: rgb(255, 255, 255);
-    color: rgb(0, 0, 0);
-    border-radius: 5%;
-    padding: 10%;
-    border-color: rgb(0, 24, 56);
-
-}
-
-.perfilhome h2{
-    text-align: center;
-    font-size: 2em;
-    margin-bottom: 10px;
-}
-
-.btn-group-opcoes-home, .btn-group-opcoes-home-sair{
-    display: block;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    text-decoration: none !important;
-    color: white;
-    font-family: "poppins", sans-serif;
-    font-optical-sizing: auto;
-    font-weight: 500;
-    font-style: normal;
-    font-size: large;
-    transition: ease-in-out 0.3s;
-    border-radius: 30px;
-}
-
-
-.tags_post{
-    background-color: rgb(0, 0, 0);
-    border-radius: 20px !important;
-    color: white;
-    transition: ease-in-out 0.3s;
-    border-color: #0d0f14;
-
-}.tags_post:hover{
-    transition: ease-in-out 0.3s;
-}
-
-.btn-deletar-tag:hover{
-    cursor: pointer;
-    background-color: rgb(113, 0, 0);
-    color: white;
-}
-
-
-.card-novidades{
-    margin-top: 50px;
-    align-items: center;
+/* ================= PERFIL ================= */
+.perfilhome {
+    background-color: #fff;
+    color: #000;
     border-radius: 20px;
-    padding: 20px;
+    padding: 24px;
 }
 
-.container {
-    display: flex;
-    justify-content: flex-start; /* joga tudo pro canto */
-    gap: 30px; /* espaço entre o perfil e o conteúdo */
+.perfilhome h2,
+.perfilhome h4 {
+    text-align: center;
 }
 
-.perfil-box {
-    margin-left: 0; /* garante que não tem margem puxando pro meio */
+/* ================= BOTÕES ================= */
+.btn-group-opcoes-home,
+.btn-group-opcoes-home-sair {
+    display: block;
+    text-align: center;
+    border-radius: 30px;
+    font-weight: 500;
+    transition: 0.3s;
 }
-    
-.btn-group-opcoes-home-mobile{
+
+.btn-group-opcoes-home-mobile {
     display: none;
 }
 
-.usuario{
-    font-family: monospace, sans-serif;
+/* ================= TAGS ================= */
+.tag_criar,
+.tags_post, 
+.tags {
+    background-color: rgb(20, 20, 20);
+    border-radius: 16px; 
+    color: #fff;
+    border: 1px solid #8a8a8a;
+    padding: 16px;
+    border-top-left-radius: 16px !important;
+    border-top-right-radius: 16px !important;
 }
 
-.tag_post_registo{
-    font-family: "poppins", sans-serif;
-
+.tags_post {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
 }
 
-@media (max-width: 767.98px){
+/* textarea */
+#texto_tag {
+    background-color: rgb(20, 20, 20);
+    border: none;
+    border-radius: 12px;
+    color: #fff;
+    padding: 12px;
+    width: 100%;
+    resize: none;
+    white-space: pre-wrap;
+    overflow-wrap: break-word;
+}
 
+/* ================= NAVBAR GLASS ================= */
+.navbar-glass {
+    position: fixed;
+    top: 16px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 9999;
+    width: 100%;
+}
 
-    .perfil-container, .col-md-6, .col-md-3:last-child{
-        margin-bottom: 20px;
+.navbar-inner {
+    margin: 0 auto;
+    width: min(1400px, 96vw);
+    width: 92%;
+    height: 64px;
+    padding: 0 24px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    background: rgba(20, 20, 20, 0.65);
+    backdrop-filter: blur(8px);
+    border-radius: 18px;
+    border: 1px solid rgba(255,255,255,0.08);
+    box-shadow: 0 10px 30px rgba(0,0,0,.4);
+}
+
+#navbar .nav-link {
+    color: #fff;
+    font-size: 1.05rem;
+}
+
+#navbar .nav-link:hover {
+    color: #aaa;
+}
+
+/* ================= CONTEÚDO ================= */
+/* NÃO mexe na .container do Bootstrap */
+.criar-tag-container {
+    width: 100%;
+}
+
+#tags {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+/* ================= MOBILE ================= */
+@media (max-width: 767.98px) {
+
+    body {
+        padding-top: 110px;
     }
-    .perfil-home img{
-        width: 100px;
-        height: 100px;
-    }
 
-    .btn-group-opcoes-home, .btn-group-opcoes-home-sair{
+    /* remove botões desktop */
+    .btn-group-opcoes-home,
+    .btn-group-opcoes-home-sair {
         display: none;
     }
 
-    .buscar-pessoas{
-        display: none;
-    }
-
-    .btn-group-opcoes-home-mobile{
+    .btn-group-opcoes-home-mobile {
         display: block;
         margin-top: 10px;
     }
 
-
-
-        .perfilhome h4 {
-        font-size: 1.2rem; /* antes podia ser 1rem ou menor */
+    /* texto */
+    .perfilhome h4 {
+        font-size: 1.2rem;
     }
 
     .perfilhome h5 {
         font-size: 1rem;
     }
 
-    .perfilhome strong {
-        font-size: 1rem;
+    /* cards */
+    .tag_criar,
+    .tags_post {
+        border-radius: 16px;
     }
 
-    /* Botões */
-    .btn-group-opcoes-home, .btn-group-opcoes-home-sair {
-        font-size: 1rem; /* aumenta leitura do botão */
-        padding: 0.5rem 1rem;
+    /* botões full */
+    .btn {
+        width: 100%;
     }
 
-    /* Posts / Conteúdo */
-    #tags, #pessoas {
-        font-size: 1rem;
+    #contador {
+        font-size: 0.85rem;
     }
-
-    /* Inputs e textarea */
-    input.form-control, textarea.form-control {
-        font-size: 1rem;
-    }
-
-    /* Navbar */
-    .navbar .nav-link {
-        font-size: 1rem;
-    }
+  
 }
-
-.

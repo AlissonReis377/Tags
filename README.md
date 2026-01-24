@@ -1,3 +1,40 @@
+
+# Site oficial
+
+  Finalmente lançamos nosso site, confira: https://tags.gamer.gd/home.php
+
+# Mudanças de layout
+
+  Decidimos dar uma repaginada no nosso projeto! Saímos de um estilo mais minimalista e simples para um layout mais completo, moderno e funcional. Agora, cada elemento está melhor organizado: o perfil, os posts e as opções aparecem de forma mais clara e intuitiva, tornando a experiência mais agradável tanto no desktop quanto no celular. É uma evolução que deixa o projeto mais próximo do que imaginávamos para os nossos usuários!
+
+- Home Page
+<img width="1898" height="906" alt="Captura de tela 2025-11-19 165758" src="https://github.com/user-attachments/assets/83d29466-a103-4893-9f0e-62fdebb55d17" />
+
+- Home Page mobile
+  
+  <img width="746" height="914" alt="image" src="https://github.com/user-attachments/assets/5e7390b0-08f2-420f-b9ab-9954e3348331" />
+
+- Editar Perfil
+  
+  
+<img width="1919" height="1028" alt="Captura de tela 2025-11-19 165818" src="https://github.com/user-attachments/assets/93fb8850-fd13-47df-82d2-3f75040537a8" />
+
+
+
+
+# Mudanças do projeto
+  O projeto mudou! Agora ele é desenvolvido por uma equipe de amigos, contando com dois devs, um disegner e dois QA. 
+  
+# Sobre o projeto
+  O projeto "Tags" surgiu como um trabalho universitário que desenvolvi com alguns colegas de curso para a disciplina de Programação Orientada a Objetos. Nosso principal objetivo era criar uma rede social inspirada no Twitter, mas com uma abordagem radicalmente minimalista. Queríamos redefinir a experiência de uma plataforma social, eliminando muitas das interações complexas que se tornaram onipresentes hoje em dia.
+
+A ideia central por trás de "Tags" era focar na essência da comunicação e do compartilhamento de conteúdo, sem a sobrecarga de funcionalidades. Decidimos remover elementos como respostas a posts, curtidas, e outras interações que, embora populares, muitas vezes desviam o foco do conteúdo em si. Acreditávamos que, ao simplificar a interface e as opções de interação, poderíamos criar um ambiente mais direto e menos poluído para os usuários.
+
+O protótipo de "Tags" foi concebido para ser o mais minimalista possível. As interações seriam reduzidas ao essencial: os usuários poderiam postar suas próprias mensagens (ou "tags"), e a única forma de engajamento permitida seria através dos botões de seguir e deixar de seguir. Essa escolha deliberada visava promover uma experiência mais focada na leitura e na criação de conteúdo, permitindo que as informações fossem consumidas e disseminadas de forma mais limpa e direta. O desafio de programação orientada a objetos aqui era grande, pois exigia uma arquitetura robusta para gerenciar usuários, posts e as conexões de seguidores, tudo dentro de um escopo bastante limitado de funcionalidades.
+
+
+
+
 #  O Projeto "Tags": Uma Rede Social Minimalista
 
   O projeto "Tags" é um trabalho universitário que desenvolvi com alguns colegas de curso para a disciplina de Programação Orientada a Objetos. Nosso principal objetivo era criar uma rede social inspirada no Twitter, mas com uma abordagem radicalmente minimalista. Queríamos redefinir a experiência de uma plataforma social, eliminando muitas das interações complexas que se tornaram onipresentes hoje em dia.
