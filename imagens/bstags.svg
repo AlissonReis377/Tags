@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="3000" height="3000">
+  <rect width="100%" height="100%" fill="#0e0e0e"/>
+
+  <g
+    fill="rgb(255, 255, 255)"
+    font-family="Inter, Arial, Helvetica, sans-serif"
+    font-size="72"
+    font-weight="700"
+    transform="rotate(-20 1500 1500)"
+  >
+    <text x="200" y="300">tags</text>
+    <text x="900" y="600">tags</text>
+    <text x="1600" y="400">tags</text>
+    <text x="2300" y="800">tags</text>
+
+    <text x="400" y="1200">tags</text>
+    <text x="1100" y="1500">tags</text>
+    <text x="1900" y="1300">tags</text>
+
+    <text x="300" y="2000">tags</text>
+    <text x="1000" y="2300">tags</text>
+    <text x="1800" y="2100">tags</text>
+    <text x="2500" y="2500">tags</text>
+  </g>
+</svg>

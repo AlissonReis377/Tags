@@ -21,10 +21,12 @@
 	
 
 		<!-- bootstrap - link cdn -->
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+		    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 		<link rel="stylesheet" href="style/style.css">
 		<!--animte.css-->
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+		<!--fonte poppins-->
+		<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
 	
 		<script>
 			// código javascript
@@ -56,8 +58,8 @@
 
 	<body>
 
-		<!-- Static navbar -->
-	    <nav class="navbar navbar-default navbar-static-top" style='font-family: monospace;'>
+		<!-- antiga navbar --
+	    <nav class="navbar navbar-expand-lg navbar-glass" style='font-family: monospace;'>
 	      <div class="container">
 	        <div class="navbar-header">
 	          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
@@ -99,22 +101,56 @@
 				  	</ul>
 	            </li>
 	          </ul>
-	        </div><!--/.nav-collapse -->
+</div>
 	      </div>
-	    </nav>
+	    </nav>-->
+
+		<!--==================nova Navbar===================-->
+<nav class="navbar navbar-expand-lg navbar-glass">
+    <div class="container-fluid navbar-inner">
+
+        <!-- Logo -->
+        <a class="navbar-brand d-flex align-items-center gap-2" href="#">
+            <img src="imagens/tags.png" width="40" alt="Tags">
+        </a>
+
+        <!-- Botão mobile -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- Conteúdo -->
+        <div class="collapse navbar-collapse" id="navbar">
+            <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-2">
+
+					
+                <li class="nav-item">
+                    <a class="nav-link" href="inscrevase.php">Inscrever-se</a>
+                </li>
+                        </form>
+
+                    </ul>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+</nav>
+
+
 
 <div class="wow animate__animated animate__fadeInUp" data-wow-delay="0.5s">
 	<div class="container">
   		<div class="row"> <!-- centraliza verticalmente -->
     
-    	<!-- Coluna da imagem -->
-    		<div class="col-md-6 d-flex justify-content-center">
-      		<img src="imagens/tags.png" class="img-responsive" alt="Arte minimalista">
+    	<!--Coluna da imagem -->
+    		<div class="col-md-6">
+      		<img src="imagens/tags.png" width="1" class="img-responsive" alt="Arte minimalista">
     	</div>
 
     <!-- Coluna do texto -->
-    	<div class="col-md-6">
-      		<div class="jumbotron" style="font-family: monospace;">
+    	<div class="col-md mt-5 tags">
+      		<div class="glass-inner" style="font-family: 'Poppins', sans-serif;">
         		<h1 class="animate__animated animate__bounce animate__faster">Tags!</h1>
 				<div class="text"><span class="typing"></span></div>
         		<a class="btn btn-custom" href="inscrevase.php">Inscrever-se</a>
@@ -125,6 +161,8 @@
 									<input type="text" class="form-control" id="campo_usuario" name="usuario" placeholder="Usuário" />
 								</div>
 								
+								<br>
+
 								<div class="form-group">
 									<input type="password" class="form-control red" id="campo_senha" name="senha" placeholder="Senha" />
 								</div>
@@ -133,6 +171,11 @@
 
 								<br /><br />
 								
+								<?php if ($erro == 1): ?>
+                                <div class="text-danger mt-2 text-center">
+                                    Usuário ou senha incorretos
+                                </div>
+                            <?php endif; ?>
 							</form>
 							
       		</div>
@@ -142,13 +185,14 @@
 </div>
 
 
+
 	      <div class="clearfix"></div>
 		</div>
 
 
 	    </div>
 </div>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
 
 

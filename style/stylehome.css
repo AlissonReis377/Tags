@@ -118,6 +118,23 @@ body {
     gap: 16px;
 }
 
+
+
+
+/*================= ABOUT PAGE =================*/
+
+.about-page{
+    color: white;
+    font-family: Poppins;
+    padding: 20px;
+}
+
+.about_text{
+    margin-top: 20px;
+    font-size: 18px;
+    line-height: 1.6;
+}
+
 /* ================= MOBILE ================= */
 @media (max-width: 767.98px) {
 
