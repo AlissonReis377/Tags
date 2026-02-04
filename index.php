@@ -105,7 +105,7 @@
 	      </div>
 	    </nav>-->
 
-		<!--==================nova Navbar===================-->
+		<!--==================nova Navbar=======================-->
 <nav class="navbar navbar-expand-lg navbar-glass">
     <div class="container-fluid navbar-inner">
 
