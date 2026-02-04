@@ -107,6 +107,19 @@ if($usuario_existe || $email_existe || $username_existe){
     die();
 }
 
+$data_nasc = $_POST['dt_nasc'];
+
+$hoje = new DateTime();
+$nascimento = new DateTime($data_nasc);
+$idade = $hoje->diff($nascimento)->y;
+
+if ($idade < 18) {
+  header("Location: inscrevase.php?erro_idade=1");
+  exit;
+}
+
+
+
 
 if($usuarioObj->salvar()){
 echo "<script>

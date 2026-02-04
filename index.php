@@ -107,9 +107,24 @@
 	<div class="container">
   		<div class="row"> <!-- centraliza verticalmente -->
     
+<<<<<<< Updated upstream
     	<!-- Coluna da imagem -->
     		<div class="col-md-6 d-flex justify-content-center">
       		<img src="imagens/tags.png" class="img-responsive" alt="Arte minimalista">
+=======
+    	<!--Coluna da imagem -->
+    		<div class="col-md-6">
+				<br>
+				<br>
+				<div class="tags inline-block p-4" style="text-align: center; border-radius: 16px; border: 1px solid #8a8a8a; background-color: rgb(20, 20, 20);">
+				<img src="imagens/tags.png" class="img-fluid rounded-circle" width="150" height="150" style="object-fit:cover;" alt="Imagem Responsiva">
+				<h4>Tags#01</h4>
+				<p>Não tem conta ainda? Relaxa eu te guio!</p>
+					<button class="btn btn-custom" data-bs-toggle="modal" data-bs-target="#modalCadastro">
+					Inscrever-se
+					</button>
+				</div>
+>>>>>>> Stashed changes
     	</div>
 
     <!-- Coluna do texto -->
@@ -140,15 +155,129 @@
 
   	</div>
 </div>
+<<<<<<< Updated upstream
 
 
+=======
+>>>>>>> Stashed changes
 	      <div class="clearfix"></div>
 		</div>
 
 
 	    </div>
 </div>
+<<<<<<< Updated upstream
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+=======
+
+<!-- Modal -->
+<div class="modal fade" id="modalCadastro" tabindex="-1">
+  <div class="modal-dialog modal-lg modal-dialog-centered">
+    <div class="modal-content tags">
+
+      <div class="modal-header">
+        <h4 class="modal-title">Criação de conta</h4>
+      </div>
+
+	  
+	  <form method="post" action="registra_usuario.php" id="formCadastrarse" enctype="multipart/form-data">
+        <div class="modal-body">
+
+          <!-- STEP 1 -->
+          <div class="step d-none">
+			<h2>Vamos começar com seu nome</h2>
+			<p>Seu nome é o que todos vão ver, ele vai ser usado para identificá-lo em todas as suas interações.</p>
+            <input type="text" id="usuario" class="tags" name="usuario" placeholder="Usuário" maxlength="15" required>
+            <?php if(isset($_GET['erro_usuario'])): ?>
+              <p class="text-danger">Usuário já existe</p>
+            <?php endif; ?>
+          </div>
+
+          <!-- STEP 2 -->
+          <div class="step d-none">
+			<h2>Agora seu username, cuidado ele é diferente do seu nome</h2>
+				<p>é um @ unico que poderemos identificar você em nosso banco de dados!</p>
+            <input type="text" class="tags" id="username" name="username" placeholder="@username" maxlength="10" required>
+            <?php if(isset($_GET['erro_username'])): ?>
+              <p class="text-danger">Username já existe</p>
+            <?php endif; ?>
+          </div>
+
+          <!-- STEP 3 -->
+          <div class="step d-none">
+			<h2>Vamos colocar seu email</h2>
+			<p>Qualquer coisa que precisarmos contatar você, usaremos esse email! Não usamos telefone nem pedimos informações pessoais :)</p>
+            <input type="email" class="tags" id="email" name="email" placeholder="Email" required>
+            <?php if(isset($_GET['erro_email'])): ?>
+              <p class="text-danger">Email já cadastrado</p>
+            <?php endif; ?>
+          </div>
+
+          <!-- STEP 4 -->
+          <div class="step d-none">
+			<h2>Quase lá... Precisamos do seu telefone</h2>
+			<p>Futuramente usaremos seu telefone para conectar você a outras pessoas, para que você possa mandar mensagens gratuitamente XD</p>
+            <input type="text" class="tags" id="telefone" name="telefone" placeholder="Telefone" required>
+          </div>
+
+          <!-- STEP 5 -->
+          <div class="step d-none">
+			<h2>Onde você mora?</h2>
+			<p>Não coloque o endereço completo, apenas cidade-estado :D</p>
+            <input type="text" class="tags" id="endereco" name="endereco" placeholder="Cidade" required>
+          </div>
+
+          <!-- STEP 6 -->
+          <div class="step d-none">
+			<h2>Precisamos saber se você pode usar nosso sistema!</h2>
+			<p>Se você for menor de idade, você não poderá usar nosso sistema :(</p>
+            <label>Data de nascimento</label>
+            <input type="date" class="tags" id="dt_nasc" name="dt_nasc" required>
+			<?php if(isset($_GET['erro_idade'])): ?>
+			<div class="alert alert-danger text-center">
+				Você precisa ter 18 anos ou mais para criar uma conta.
+			</div>
+			<?php endif; ?>
+
+          </div>
+
+          <!-- STEP 7 -->
+          <div class="step d-none">
+			<h2>Quase lá! Agora uma breve biografia</h2>
+            <textarea class="form-control" id="bio" name="bio" placeholder="Sua biografia" maxlength="160"></textarea>
+          </div>
+
+          <!-- STEP 8 -->
+          <div class="step d-none">
+			<h2>Senha</h2>
+            <input type="password" class="tags" id="senha" name="senha" placeholder="Senha" required>
+          </div>
+
+          <!-- STEP 9 -->
+          <div class="step d-none">
+            <label>Foto de perfil</label>
+            <input type="file" name="foto_perfil" accept="image/*" class="tags">
+          </div>
+
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" id="btnContinuar">
+            Continuar
+          </button>
+
+          <button type="submit" class="btn btn-success hidden" id="btnEnviar">
+            Finalizar cadastro
+          </button>
+        </div>
+
+      </form>
+
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+>>>>>>> Stashed changes
 <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
 
 
@@ -159,6 +288,81 @@
 		backSpeed: 60,
 		loop: true
 	});
+
+
+
+
+const modal = document.getElementById('modalCadastro');
+const steps = modal.querySelectorAll('.step');
+const btnContinuar = modal.querySelector('#btnContinuar');
+const btnEnviar = modal.querySelector('#btnEnviar');
+
+let stepAtual = 0;
+
+function mostrarStep(index) {
+  steps.forEach((step, i) => {
+    step.classList.toggle('d-none', i !== index);
+  });
+}
+
+
+modal.addEventListener('shown.bs.modal', () => {
+  stepAtual = 0;
+  mostrarStep(stepAtual);
+  btnContinuar.classList.remove('d-none');
+  btnEnviar.classList.add('d-none');
+});
+
+btnContinuar.addEventListener('click', () => {
+  const inputs = steps[stepAtual].querySelectorAll('input, textarea');
+  for (let input of inputs) {
+    if (!input.checkValidity()) {
+      input.reportValidity();
+      return;
+    }
+  }
+
+  stepAtual++;
+
+  if (stepAtual < steps.length) {
+    mostrarStep(stepAtual);
+  }
+
+  if (stepAtual === steps.length - 1) {
+    btnContinuar.classList.add('d-none');
+    btnEnviar.classList.remove('d-none');
+  }
+  function tem18Anos(data) {
+	const hoje = new Date();
+	const nascimento = new Date(data);
+  
+	let idade = hoje.getFullYear() - nascimento.getFullYear();
+	const m = hoje.getMonth() - nascimento.getMonth();
+  
+	if (m < 0 || (m === 0 && hoje.getDate() < nascimento.getDate())) {
+	  idade--;
+	}
+  
+	return idade >= 18;
+  }
+
+  if (inputs[0].name === 'dt_nasc') {
+  if (!tem18Anos(inputs[0].value)) {
+    inputs[0].classList.add('is-invalid');
+    return;
+  } else {
+    inputs[0].classList.remove('is-invalid');
+  }
+}
+
+
+});
+
+
+
+
+
+
 </script>
 
 

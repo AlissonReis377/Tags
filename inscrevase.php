@@ -83,6 +83,12 @@
 					</div>
 					<div class="form-group">
 						<input type="date" class="form-control" id="dt_nasc" name="dt_nasc" placeholder="" required="requiored">
+						<?php if(isset($_GET['erro_idade'])): ?>
+						<div class="alert alert-danger text-center">
+							Você precisa ter 18 anos ou mais para criar uma conta.
+						</div>
+						<?php endif; ?>
+
 					</div>
 					<div class="form-group">
 						<textarea class="form-control" id="bio" name="bio" placeholder="Escreva aqui sua biografia" required="requiored" maxlength="160"></textarea>
